@@ -22,6 +22,9 @@
   "homepage": "https://github.com/crsc26/Crowd-sourcing-mosquito-tool#readme",
   "dependencies": {
     "angular": "^1.7.4",
-    "bootstrap": "^4.1.3"
+    "angular-google-maps": "^2.4.1",
+    "bootstrap": "^4.1.3",
+    "bootstrap-imageupload": "^1.1.3",
+    "gmap": "^1.0.1"
   }
 }

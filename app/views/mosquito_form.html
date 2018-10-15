@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<title>Ayudanos</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="../public/img/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../public/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../public/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../public/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../public/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../public/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../public/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body ng-controller="Form_Controller">
+
+	<div class="bg-contact3" style="background-image: url('../public/img/aedes.jpg');">
+		<div class="container-contact3">
+			<div class="wrap-contact3">
+				<form class="contact3-form validate-form">
+					<span class="contact3-form-title">
+						{{appName}}
+					</span>
+					<ng-map zoom="11"
+						on-click="addMarker()"j
+						center="[40.74, -74.18]">
+						<custom-marker ng-repeat="p in positions1" position="{{p.pos[0]}}, {{p.pos[1]}}">
+						<div> position: {{p.pos[0]}}, {{p.pos[1]}} </div>
+						</custom-marker>
+				  </ng-map>
+
+					<!---
+					<div class="wrap-contact3-form-radio">
+						<div class="contact3-form-radio m-r-42">
+							<input class="input-radio3" id="radio1" type="radio" name="choice" value="say-hi" checked="checked">
+							<img src="../public/img/aedes.jpg" class="image-fit">
+							<label class="label-radio3" for="radio1">
+								Aedes albopictus
+							</label>
+						</div>	
+
+						<div class="contact3-form-radio">
+							<input class="input-radio3" id="radio2" type="radio" name="choice" value="get-quote">
+							<label class="label-radio3" for="radio2">
+								Get a Quote
+							</label>
+						</div>
+					</div>
+					-->
+
+					<div class="paymentWrap">
+						<div class="btn-group paymentBtnGroup btn-group-justified mx-auto d-block"" data-toggle="buttons">
+							<label class="btn paymentMethod active">
+								<div class="method aedes"></div>
+								<input type="radio" name="options" checked> 
+							</label>
+							<label class="btn paymentMethod">
+								<div class="method anopheles"></div>
+								<input type="radio" name="options"> 
+							</label>
+							<label class="btn paymentMethod">
+								<div class="method culex"></div>
+								<input type="radio" name="options">
+							</label>
+						</div>        
+					</div>
+
+					<!-- Upload images -->
+
+					<div class="imageupload panel panel-default">
+						<div class="panel-heading clearfix">
+							<h3 class="panel-title pull-left">Subir Imagenes</h3>
+							<div class="btn-group pull-right">
+								<button type="button" class="btn btn-default active">Archivo</button>
+								<!--
+								<button type="button" class="btn btn-default">URL</button>
+								 Upload images -->
+							</div>
+						</div>
+						<div class="file-tab panel-body">
+							<label class="btn btn-default btn-file">
+								<span>Browse</span>
+								<!-- The file is stored here. -->
+								<input type="file" name="image-file">
+							</label>
+							<button type="button" class="btn btn-default">Remove</button>
+						</div>
+						<div class="url-tab panel-body">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Image URL">
+								<div class="input-group-btn">
+									<button type="button" class="btn btn-default">Enviar</button>
+								</div>
+							</div>
+							<button type="button" class="btn btn-default">Eliminar</button>
+							<!-- The URL is stored here. -->
+							<input type="hidden" name="image-url">
+						</div>
+					</div>
+
+					<!-- Upload images -->
+
+					<div class="wrap-input3 validate-input" data-validate="Name is required">
+						<input class="input3" type="text" name="name" placeholder="Your Name">
+						<span class="focus-input3"></span>
+					</div>
+
+					<div class="wrap-input3 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input3" type="text" name="email" placeholder="Your Email">
+						<span class="focus-input3"></span>
+					</div>
+
+					<div class="wrap-input3 validate-input" data-validate = "Message is required">
+						<textarea class="input3" name="message" placeholder="¿Tienes algún comentario que quieras agregar?"></textarea>
+						<span class="focus-input3"></span>
+					</div>
+
+					<div class="container-contact3-form-btn">
+						<button class="contact3-form-btn">
+							Enviar
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--=====Angular===================================================================================-->
+	<script src="../../node_modules/angular/angular.min.js"></script>
+
+<!--===============================================================================================-->
+	<script src="../public/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../public/vendor/bootstrap/js/popper.js"></script>
+	<script src="../public/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../public/vendor/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+
+<script src="../../bower_components/ngmap/build/scripts/ng-map.min.js"></script>
+<script src="http://maps.google.com/maps/api/js"></script>
+<!--=====Angular modules============================================================================-->
+<script src="../controllers/mosquito_form_controller.js"></script>
+
+
+<!--===============================================================================================-->
+<script src="../public/js/main.js"></script>
+
+<!--===============================================================================================-->
+
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+<!-- Bootstrap core JavaScript -->
+<script src="../public/vendor/jquery/jquery.min.js"></script>
+<script src="../public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="../public/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="../public/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+<!-- Contact Form JavaScript -->
+<script src="../public/js/jqBootstrapValidation.js"></script>
+<script src="../public/js/contact_me.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="../public/js/freelancer.min.js"></script>
+
+</body>
+</html>
