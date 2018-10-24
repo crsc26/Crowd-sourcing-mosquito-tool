@@ -1,76 +1,75 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
+
 <head>
 	<title>Ayudanos</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="../public/img/icons/favicon.ico"/>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../public/css/main.css">
 	<link rel="stylesheet" type="text/css" href="../public/vendor/bootstrap/css/bootstrap.min.css">
-
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 </head>
+
 <body ng-controller="Form_Controller">
 	<div class="container">
 	  <form id="contact" action="" method="post">
 	    <h3>{{appName}}</h3>
-	    <h4>Colabora con la causa</h4>
+			<h4>Colabora con la causa</h4
+				>
 			<fieldset>
 				<input places-auto-complete types="['geocode']" on-place-changed="placeMarker()" type="text" tabindex="1" required autofocus/>
 			</fieldset>
+
+			<!-- Google Maps map -->
 			<div class="row justify-content-center">
-			<ng-map id="mapa" center="{{center}}" zoom="5" on-click="getpos($event)" style='width: 100%; margin: 15px;'>
-					<marker position="{{latlng}}" on-dragend="getpos($event)"
-						animation="Animation.BOUNCE" animation="DROP" draggable="true"></marker>
+				<ng-map id="mapa" center="{{center}}" zoom="5" on-click="getpos($event)" style='width: 100%; margin: 15px;'>
+					<marker position="{{latlng}}" on-dragend="getpos($event)" animation="Animation.BOUNCE" animation="DROP" draggable="true"></marker>
 				</ng-map>
-				{{latlng}}
+			{{latlng}}
 			</div>
+
+			<!-- Choose mosquito -->
 			<div class="row justify-content-center form-group">
 				<div class="col-md-3 box"><label class="btn"><img src="../public/img/culex.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="chk1" id="item4" value="val1" class="hidden" autocomplete="off"></label></div>
 				<div class="col-md-3 box"><label class="btn"><img src="../public/img/aedes.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="chk1" id="item4" value="val2" class="hidden" autocomplete="off"></label></div>
 				<div class="col-md-3 box"><label class="btn"><img src="../public/img/anopheles.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="chk1" id="item4" value="val3" class="hidden" autocomplete="off"></label></div>
 			</div>
+
 			<div class="paymentWrap">
 				<div class="btn-group paymentBtnGroup btn-group-justified mx-auto d-block" data-toggle="buttons">
 				</div>
 			</div>
+
+			<!-- Choose sighting -->
 			<fieldset>
 				<label>Tipo de avistamiento:</label>
-				<div class="row">
-					<div class="col-3"></div>
-					<div class="col-2">
-						<label class="radio-inline">
-							<input type="radio" name="optradio" checked>Option 1
-						</label>
-					</div>
-					<div class="col-2">
-						<label class="radio-inline">
-							<input type="radio" name="optradio">Option 2
-						</label>
-					</div>
-					<div class="col-2">
-						<label class="radio-inline">
-							<input type="radio" name="optradio">Option 3
-						</label>
-					</div>
+				<div class="row justify-content-center form-group">
+						<div class="col-md-3 box"><label class="btn"><img src="../public/img/flying_mosquito.png" alt="..." class="img-thumbnail img-check"><input type="radio" name="chk1" id="item4" value="val1" class="hidden" autocomplete="off">Mosquitos volando</label></div>
+						<div class="col-md-3 box"><label class="btn"><img src="../public/img/mosquito_water.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="chk1" id="item4" value="val2" class="hidden" autocomplete="off">Mosquitos en agua</label></div>
+						<div class="col-md-3 box"><label class="btn"><img src="../public/img/mosquito larvae.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="chk1" id="item4" value="val3" class="hidden" autocomplete="off">Larvas de moquito</label></div>
 				</div>
 			</fieldset>
+
 			<br>
+
+			<!-- Upload images -->
 			<div class="text-center">
 				<div class="upload-btn-wrapper">
-				  <button class="btn">Upload a file</button>
+				  <button class="btn">Subir fotos</button>
 				  <input type="file" name="myfile" />
 				</div>
 			</div>
+
 			<br>
-	    <fieldset>
-	      <input placeholder="Your Email Address" type="email" tabindex="2" required>
-	    </fieldset>
+			
+			<textarea class="form-control" id="comments" name="comments" placeholder="¿Tienes algún comentario que agregar?" rows="5"></textarea>
+
 	    <fieldset>
 	      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
 	    </fieldset>
