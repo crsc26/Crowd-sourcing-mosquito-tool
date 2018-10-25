@@ -26,7 +26,7 @@
 				<input places-auto-complete types="['geocode']" on-place-changed="placeMarker()" type="text" tabindex="1" required autofocus/>
 			</fieldset>
 			<div class="row justify-content-center">
-			<ng-map id="mapa" center="{{center}}" zoom="5" on-click="getpos($event)" style='width: 100%; margin: 15px;'>
+			<ng-map id="mapa" center="{{center}}" zoom="14" on-click="getpos($event)" style='width: 100%; margin: 15px;'>
 					<marker position="{{latlng}}" on-dragend="getpos($event)"
 						animation="Animation.BOUNCE" animation="DROP" draggable="true"></marker>
 				</ng-map>
