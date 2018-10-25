@@ -119,7 +119,7 @@
             <p class="lead">Tú puedes ayudarnos a crecer este proyecto al proporcionar información sobre la presencia de mosquitos. ¡Solo necesitas registrarte y llenar un sencillo formulario!</p>
           </div>
         </div>
-        <!-- Contact Section 
+        <!-- Contact Section
         <div class="text-center mt-4">
           <a class="btn btn-xl btn-outline-light" href="#">
             <i class="fas fa-download mr-2"></i>
@@ -139,7 +139,7 @@
           <div class="col-lg-8 mx-auto">
             <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
             <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-            <form name="sentMessage" id="contactForm" novalidate="novalidate">
+            <form name="sentMessage" id="contactForm" novalidate="novalidate" ng-submit="debug()" >
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                   <label>Nombre</label>
@@ -179,7 +179,7 @@
       </div>
     </section>
 
-    <!-- 
+    <!--
     <footer class="footer text-center">
       <div class="container">
         <div class="row">

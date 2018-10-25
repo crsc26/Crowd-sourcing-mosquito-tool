@@ -32,29 +32,24 @@
 				</ng-map>
 				{{latlng}}
 			</div>
-			<div class="row justify-content-center form-group">
-				<div class="col-md-3 box"><label class="btn"><img src="../public/img/culex.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="chk1" id="item4" value="val1" class="hidden" autocomplete="off"></label></div>
-				<div class="col-md-3 box"><label class="btn"><img src="../public/img/aedes.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="chk1" id="item4" value="val2" class="hidden" autocomplete="off"></label></div>
-				<div class="col-md-3 box"><label class="btn"><img src="../public/img/anopheles.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="chk1" id="item4" value="val3" class="hidden" autocomplete="off"></label></div>
-			</div>
-			<div class="paymentWrap">
-				<div class="btn-group paymentBtnGroup btn-group-justified mx-auto d-block" data-toggle="buttons">
+			<fieldset>
+				<label>Tipo de mosquito :</label>
+				<div class="row justify-content-center form-group">
+					<div class="col-md-3 box"><label class="btn"><img src="../public/img/culex.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="chk1" id="item1" ng-model="type" value="culex" class="hidden" autocomplete="off"></label></div>
+					<div class="col-md-3 box"><label class="btn"><img src="../public/img/aedes.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="chk1" id="item2" ng-model="type" value="aedes" class="hidden" autocomplete="off"></label></div>
+					<div class="col-md-3 box"><label class="btn"><img src="../public/img/anopheles.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="chk1" id="item3" ng-model="type" value="anopheles" class="hidden" autocomplete="off"></label></div>
 				</div>
-			</div>
+		</fieldset>
 	    <fieldset>
-	      <input placeholder="Your name" type="text" tabindex="1" required autofocus>
-	    </fieldset>
+				<label>Tipo de avistamiento: </label>
+				<div class="row justify-content-center form-group">
+						<div class="col-md-3 box"><label class="btn"><img src="../public/img/flying_mosquito.png" alt="..." class="img-thumbnail img-check"><input type="radio" name="av1" id="item4" ng-model="avistamiento" value="flying" class="hidden" autocomplete="off">Mosquitos volando</label></div>
+						<div class="col-md-3 box"><label class="btn"><img src="../public/img/mosquito_water.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="av2" id="item5" ng-model="avistamiento"  value="water" class="hidden" autocomplete="off">Mosquitos en agua</label></div>
+						<div class="col-md-3 box"><label class="btn"><img src="../public/img/mosquito larvae.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="av3" id="item6" ng-model="avistamiento"  value="larvae" class="hidden" autocomplete="off">Larvas de moquito</label></div>
+				</div>
+			</fieldset>
 	    <fieldset>
-	      <input placeholder="Your Email Address" type="email" tabindex="2" required>
-	    </fieldset>
-	    <fieldset>
-	      <input placeholder="Your Phone Number (optional)" type="tel" tabindex="3" required>
-	    </fieldset>
-	    <fieldset>
-	      <input placeholder="Your Web Site (optional)" type="url" tabindex="4" required>
-	    </fieldset>
-	    <fieldset>
-	      <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
+	      <textarea placeholder="Comentarios..." tabindex="5" required ng-model="comments"></textarea>
 	    </fieldset>
 	    <fieldset>
 	      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
