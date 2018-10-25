@@ -39,7 +39,7 @@ app.controller("Form_Controller", function($scope, $http, NgMap)
       function(){
         //error code
       });
-      
+
       console.log(jsn);
     }
 
@@ -51,5 +51,25 @@ app.controller("Form_Controller", function($scope, $http, NgMap)
         $scope.center = [loc.lat(), loc.lng()];
     };
 
+
+    var x = document.getElementById("demo");
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude;
+        $scope.center = [position.coords.latitude, position.coords.longitude];
+        $scope.latlng = [position.coords.latitude, position.coords.longitude];
+
+    }
+
+    getLocation();
 
 });
