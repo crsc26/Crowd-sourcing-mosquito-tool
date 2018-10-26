@@ -48,8 +48,18 @@
 						<div class="col-md-3 box"><label class="btn"><img src="../public/img/mosquito larvae.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="av3" id="item6" ng-model="avistamiento"  value="larvae" class="hidden" autocomplete="off">Larvas de moquito</label></div>
 				</div>
 			</fieldset>
+			<fieldset>
+				<div class="row">
+					<div class="col-8">
+					<input placeholder="Temperatura en Celsius" type="text" tabindex="1" value="{{tmp}}" required autofocus/>
+					</div>
+					<div class="col-2">
+						<button ng-click="getWeather()" class="btn btn-success">Obtener temperatura</button>
+					</div>
+				</div>
+			</fieldset>
 	    <fieldset>
-	      <textarea placeholder="¿Quieres agregar algún comentario?" tabindex="5" required ng-model="comments"></textarea>
+	      <textarea placeholder="¿Quieres agregar algún comentario?" tabindex="5" ng-model="comments"></textarea>
 	    </fieldset>
 	    <fieldset>
 	      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
