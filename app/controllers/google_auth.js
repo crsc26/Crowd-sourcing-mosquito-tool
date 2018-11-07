@@ -16,7 +16,7 @@ function renderButton() {
 function onSuccess(googleUser) {
     // Get the google profile data
     var profile = googleUser.getBasicProfile();
-
+    
     // Get the google+ profile data
     gapi.client.load('plus', 'v1', function () {
         var request = gapi.client.plus.people.get({
@@ -30,6 +30,9 @@ function onSuccess(googleUser) {
 
             document.getElementById("gSignIn").style.display = "none";
             document.getElementsByClassName("userContent")[0].style.display = "block";
+            
+            // Save user data
+            saveUserData(resp);
         });
     });
 }
