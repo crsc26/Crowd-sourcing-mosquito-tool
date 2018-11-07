@@ -2,7 +2,7 @@ var app = angular.module("app",['ngMap']);
 
 app.controller("Form_Controller", function($scope, $http, NgMap)
 {
-    $scope.appName = "¡Ayudanos!";
+    $scope.appName = "¡Ayúdanos!";
     $scope.center = [20.61839, -100.41068];
     $scope.latlng = [20.61839, -100.41068];
 
@@ -59,6 +59,11 @@ app.controller("Form_Controller", function($scope, $http, NgMap)
         var loc = this.getPlace().geometry.location;
         $scope.latlng = [loc.lat(), loc.lng()];
         $scope.center = [loc.lat(), loc.lng()];
+    }
+
+    $scope.openModal = function(i){
+        var modal = "#portfolio-modal-" + i;
+        $(modal).modal('show');
     }
 
     $scope.getWeather = function(){

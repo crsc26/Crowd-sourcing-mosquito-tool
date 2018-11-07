@@ -7,65 +7,164 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="../public/img/icons/favicon.ico"/>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../public/css/main.css">
 	<link rel="stylesheet" type="text/css" href="../public/vendor/bootstrap/css/bootstrap.min.css">
 
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../public/css/personal.css">
+	<link href="../public/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
+
+	<!--===============================================================================================-->
 </head>
 
 <body ng-controller="Form_Controller">
 	<div class="container">
 	  <form id="contact" action="">
-	    <h3>{{appName}}</h3>
-	    <h4>Colabora con la causa</h4>
-			<fieldset>
-				<input places-auto-complete types="['geocode']" on-place-changed="placeMarker()" type="text" tabindex="1" autofocus/>
-			</fieldset>
-			<div class="row justify-content-center">
+	    <h1>{{appName}}</h1>
+		<h3>Colabora con la causa, selecciona o escribe el lugar de la presencia del mosquito:</h3>
+
+		<fieldset>
+			<input places-auto-complete types="['geocode']" on-place-changed="placeMarker()" type="text" tabindex="1" autofocus/>
+		</fieldset>
+
+		<div class="row justify-content-center">
 			<ng-map id="mapa" center="{{center}}" zoom="14" on-click="getpos($event)" style='width: 100%; margin: 15px;'>
-					<marker position="{{latlng}}" on-dragend="getpos($event)"
-						animation="Animation.BOUNCE" animation="DROP" draggable="true"></marker>
-				</ng-map>
-				{{latlng}}
+				<marker position="{{latlng}}" on-dragend="getpos($event)"
+					animation="Animation.BOUNCE" animation="DROP" draggable="true"></marker>
+			</ng-map>
+		</div>
+
+		<p class="lead"><em>La latitud y longitud seleccionada es: {{latlng}}</em></p>
+
+		<fieldset>
+			<label>Tipo de mosquito :</label>
+			<div class="row justify-content-center form-group">
+				<div class="col-md-3 box"><label class="btn"><a data-toggle="modal" data-target="#exampleModal"><img src="../public/img/culex.jpg" alt="..." class="img-thumbnail img-check"></a><input type="radio" name="chk1" id="item1" ng-model="type" value="aedes" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquito tigre (Aedes albopictus)</figcaption></div>
+				<div class="col-md-3 box"><label class="btn"><a data-toggle="modal" data-target="#exampleModal"><img src="../public/img/aedes.jpg" alt="..." class="img-thumbnail img-check"></a><input type="radio" name="chk1" id="item2" ng-model="type" value="anopheles" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquito Anopheles</figcaption></div>
+				<div class="col-md-3 box"><label class="btn"><a data-toggle="modal" data-target="#exampleModal"><img src="../public/img/anopheles.jpg" alt="..." class="img-thumbnail img-check"></a><input type="radio" name="chk1" id="item3" ng-model="type" value="culex" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquito Culex</figcaption></div>
 			</div>
-			<fieldset>
-				<label>Tipo de mosquito :</label>
-				<div class="row justify-content-center form-group">
-					<div class="col-md-3 box"><label class="btn"><img src="../public/img/culex.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="chk1" id="item1" ng-model="type" value="culex" class="hidden" autocomplete="off"></label></div>
-					<div class="col-md-3 box"><label class="btn"><img src="../public/img/aedes.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="chk1" id="item2" ng-model="type" value="aedes" class="hidden" autocomplete="off"></label></div>
-					<div class="col-md-3 box"><label class="btn"><img src="../public/img/anopheles.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="chk1" id="item3" ng-model="type" value="anopheles" class="hidden" autocomplete="off"></label></div>
+
+			<div class="wrapper">
+					<div class="toggle_radio">
+						<input type="radio" class="toggle_option" id="first_toggle" name="toggle_option" ng-model="type" value="aedes">
+						<input type="radio" checked class="toggle_option" id="second_toggle" name="toggle_option" ng-model="type" value="anopheles">
+						<input type="radio" class="toggle_option" id="third_toggle" name="toggle_option" ng-model="type" value="culex">
+						<label for="first_toggle"><p>Aedes</p></label>
+						<label for="second_toggle"><p>Anopheles</p></label>
+						<label for="third_toggle"><p>Culex</p></label>
+					<div class="toggle_option_slider"></div>
+					</div>
 				</div>
 		</fieldset>
-	    <fieldset>
-				<label>Tipo de avistamiento: </label>
-				<div class="row justify-content-center form-group">
-						<div class="col-md-3 box"><label class="btn"><img src="../public/img/flying_mosquito.png" alt="..." class="img-thumbnail img-check"><input type="radio" name="av1" id="item4" ng-model="avistamiento" value="flying" class="hidden" autocomplete="off">Mosquitos volando</label></div>
-						<div class="col-md-3 box"><label class="btn"><img src="../public/img/mosquito_water.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="av2" id="item5" ng-model="avistamiento"  value="water" class="hidden" autocomplete="off">Mosquitos en agua</label></div>
-						<div class="col-md-3 box"><label class="btn"><img src="../public/img/mosquito larvae.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="av3" id="item6" ng-model="avistamiento"  value="larvae" class="hidden" autocomplete="off">Larvas de moquito</label></div>
+		
+	  <fieldset>
+			<label>Tipo de avistamiento:</label>
+			<div class="row justify-content-center form-group">
+
+			<div class="row justify-content-center form-group">
+				<div class="col-md-3 box"><label class="btn"><img src="../public/img/flying_mosquito.png" alt="..." class="img-thumbnail img-check"><input type="radio" name="av1" id="item4" ng-model="avistamiento" value="flying" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquitos volando</figcaption></div>
+				<div class="col-md-3 box"><label class="btn"><img src="../public/img/mosquito_water.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="av2" id="item5" ng-model="avistamiento"  value="water" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquitos en agua</figcaption></div>
+				<div class="col-md-3 box"><label class="btn"><img src="../public/img/mosquito_larvae.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="av3" id="item6" ng-model="avistamiento"  value="larvae" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Larvas</figcaption></div>
+			</div>
+
+			<div class="wrapper">
+				<div class="toggle_radio">
+					<input type="radio" class="toggle_option" id="first_toggle_avistamiento" name="toggle_option" ng-model="avistamiento" value="flying">
+					<input type="radio" checked class="toggle_option" id="second_toggle_avistamiento" name="toggle_option" ng-model="avistamiento" value="water">
+					<input type="radio" class="toggle_option" id="third_toggle_avistamiento" name="toggle_option" ng-model="avistamiento" value="larvae">
+					<label for="first_toggle_avistamiento"><p>Mosquito volando</p></label>
+					<label for="second_toggle_avistamiento"><p>Mosquito en agua</p></label>
+					<label for="third_toggle_avistamiento"><p>Larvas</p></label>
+				<div class="toggle_option_slider"></div>
 				</div>
-			</fieldset>
-			<fieldset>
-				<div class="row">
-					<div class="col-8">
-					<input placeholder="Temperatura en Celsius" type="text" tabindex="1" value="{{tmp}}" required autofocus/>
-					</div>
-					<div class="col-2">
-						<button ng-click="getWeather()" class="btn btn-success">Obtener temperatura</button>
-					</div>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<div class="row">
+				<div class="col-8">
+				<input placeholder="Temperatura en Celsius" type="text" tabindex="1" value="{{tmp}}" required autofocus/>
 				</div>
-			</fieldset>
+				<div class="col-2">
+					<button ng-click="getWeather()" class="btn btn-success">Obtener temperatura</button>
+				</div>
+			</div>
+		</fieldset>
+
 	    <fieldset>
 	      <textarea placeholder="¿Quieres agregar algún comentario?" tabindex="5" ng-model="comments"></textarea>
-	    </fieldset>
+		</fieldset>
+
 	    <fieldset>
 	      <button id="contact-submit" ng-click="debug()">Submit</button>
-	    </fieldset>
+		</fieldset>
+
 	  </form>
-	</div>
+		</div>
+
+		<!-- Modal Aedes -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        ...
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<!-- Modal Anopheles -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        ...
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<!-- Modal Culex -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        ...
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 <!--=====Angular===================================================================================-->
 	<script src="../../node_modules/angular/angular.min.js"></script>
 
@@ -97,6 +196,7 @@
 <!-- Plugin JavaScript -->
 <script src="../public/vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="../public/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="../public/js/jqBootstrapValidation.js"></script>
 
 <!-- Contact Form JavaScript -->
 <script src="../public/js/contact_me.js"></script>
