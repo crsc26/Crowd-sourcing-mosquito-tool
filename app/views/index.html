@@ -24,6 +24,9 @@
     <!-- Custom styles for this template -->
     <link href="../public/css/freelancer.min.css" rel="stylesheet">
 
+    <!-- Google Authentication -->
+    <meta name="google-signin-client_id" content="243072573298-3280l16cl2ourd5k3520ksf4merjb391.apps.googleusercontent.com">
+
   </head>
 
   <body id="page-top">
@@ -49,7 +52,9 @@
             </li>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Colabora</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">
+                <div class="g-signin2" data-onsuccess="onSignIn"></div> 
+              </a>
             </li>
           </ul>
         </div>
@@ -255,7 +260,7 @@
 
     <div class="copyright py-4 text-center text-white">
       <div class="container">
-        <small>Copyright &copy; Your Website 2018</small>
+        <small>Copyright &copy; Crowdsourcing Mosquito 2018</small>
       </div>
     </div>
 
@@ -327,6 +332,9 @@
 
     <!-- Custom scripts for this template -->
     <script src="../public/js/freelancer.min.js"></script>
+
+    <!-- Script for Google Authentication -->
+    <script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
 
   </body>
 
