@@ -10,6 +10,7 @@ app.controller("Form_Controller", function($scope, $http, NgMap)
     $scope.avistamiento = "";
     $scope.comments = "";
     $scope.weatherInfo = "";
+    $scope.tmp = "";
 
     $scope.getpos = function (event) {
         $scope.lat = event.latLng.lat();
@@ -19,27 +20,35 @@ app.controller("Form_Controller", function($scope, $http, NgMap)
 
     $scope.debug = function(){
       var jsn = {
-        "latlng" : $scope.latlng,
+        "coordenadas" : $scope.latlng,
         "type" : $scope.type,
         "seen" : $scope.avistamiento,
-        "comments" : $scope.comments
+        "comments" : $scope.comments,
+        "temp" : $scope.tmp
       }
 
-      var req = {
-       method: 'POST',
-       url: 'http://example.com',
-       headers: {
-         'Content-Type': undefined
-       },
-       data: jsn
+      var str = JSON.stringify(jsn);
+      console.log(str);
+
+      var config = {
+          headers : {
+              'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+          }
       }
 
-      $http(req).then(function(){
-          //insert code
-      },
-      function(){
-        //error code
-      });
+      var u = 'http://127.0.0.1:8080/seen/postAdd';
+
+      $http({
+        method: 'POST',
+        url: u,
+        headers: {'Content-Type' : 'text/plain'},
+        data: str
+      }).then(function successCallback(data) {
+                $scope.PostDataResponse = data;
+                console.log(data);
+            }, function errorCallback(response) {
+                console.log(response);
+            });
 
       console.log(jsn);
     }

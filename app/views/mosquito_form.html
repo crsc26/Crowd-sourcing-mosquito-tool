@@ -19,11 +19,11 @@
 
 <body ng-controller="Form_Controller">
 	<div class="container">
-	  <form id="contact" action="" method="post">
+	  <form id="contact" action="">
 	    <h3>{{appName}}</h3>
 	    <h4>Colabora con la causa</h4>
 			<fieldset>
-				<input places-auto-complete types="['geocode']" on-place-changed="placeMarker()" type="text" tabindex="1" required autofocus/>
+				<input places-auto-complete types="['geocode']" on-place-changed="placeMarker()" type="text" tabindex="1" autofocus/>
 			</fieldset>
 			<div class="row justify-content-center">
 			<ng-map id="mapa" center="{{center}}" zoom="14" on-click="getpos($event)" style='width: 100%; margin: 15px;'>
@@ -62,7 +62,7 @@
 	      <textarea placeholder="¿Quieres agregar algún comentario?" tabindex="5" ng-model="comments"></textarea>
 	    </fieldset>
 	    <fieldset>
-	      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+	      <button id="contact-submit" ng-click="debug()">Submit</button>
 	    </fieldset>
 	  </form>
 	</div>
@@ -89,7 +89,6 @@
 <script src="../controllers/mosquito_form_controller.js"></script>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 
 <!-- Bootstrap core JavaScript -->
 <script src="../public/vendor/jquery/jquery.min.js"></script>
