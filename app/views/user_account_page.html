@@ -16,8 +16,9 @@
   <link rel="stylesheet" type="text/css" href="../public/css/personal.css">
   <link href="../public/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
 
+  <!--=================================== Google Authentication ===========================================-->
+  <meta name="google-signin-client_id" content="243072573298-3280l16cl2ourd5k3520ksf4merjb391.apps.googleusercontent.com">
 
-  <!--===============================================================================================-->
 </head>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -37,21 +38,18 @@
 
                 <div class="col-md-6">
                     <div class="profile-head">
-                        <h5>Kshiti Ghelani</h5>
-                        <h6>Web Developer and Designer</h6>
+                        <h5>Bienvenid@ Kshiti Ghelani</h5>
+                        <h6>En esta página podrás encontrar tus aportaciones</h6>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Aportaciones</a>
                             </li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-md-2">
-                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                  <button type="button" class="btn btn-danger" onclick="signOut();" href="https://accounts.google.com/Logout?hl=en&amp;continue=https://mail.google.com/mail&amp;service=mail&amp;timeStmp=1541657981&amp;secTok=.AG5fkS9RZMWwsrmEG-WZZGnKAMMIzrtZEg">Cerrar Sesión</button>
                 </div>
 
             </div>
@@ -60,10 +58,10 @@
 
                 <div class="col-md-4">
                     <div class="profile-work">
-                        <p>WORK LINK</p>
-                        <a href="">Website Link</a><br/>
-                        <a href="">Bootsnipp Profile</a><br/>
-                        <a href="">Bootply Profile</a>
+                        <p>Enlaces:</p>
+                        <a href="">Tus aportaciones</a><br/>
+                        <a href="">Mapa mundial de aportaciones</a><br/>
+                        <a href="">Nueva aportación</a>
                     </div>
                 </div>
 
@@ -83,91 +81,38 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Name</label>
+                                    <label>Tipo de mosquito</label>
                                 </div>
                                 <div class="col-md-6">
-                                <p>Kshiti Ghelani</p>
+                                  <p>{{type}}</p>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6">
-                                <label>Email</label>
+                                <label>Tipo de avistamiento</label>
                                 </div>
                                 <div class="col-md-6">
-                                <p>kshitighelani@gmail.com</p>
+                                <p>{{avistamiento}}</p>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6">
-                                <label>Phone</label>
+                                <label>Temperatura del lugar</label>
                                 </div>
                                 <div class="col-md-6">
-                                <p>123 456 7890</p>
+                                  <p>{{tmp}}</p>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6">
-                                <label>Profession</label>
+                                <label>Comentario</label>
                                 </div>
                                 <div class="col-md-6">
-                                <p>Web Developer and Designer</p>
+                                <p>{{comments}}</p>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Experience</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>Expert</p>
-                                </div>
-                            </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                            <label>Hourly Rate</label>
-                            </div>
-                            <div class="col-md-6">
-                            <p>10$/hr</p>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                            <label>Total Projects</label>
-                            </div>
-                            <div class="col-md-6">
-                            <p>230</p>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                            <label>English Level</label>
-                            </div>
-                            <div class="col-md-6">
-                            <p>Expert</p>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                            <label>Availability</label>
-                            </div>
-                            <div class="col-md-6">
-                            <p>6 months</p>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                            <label>Your Bio</label><br/>
-                            <p>Your detail description</p>
                             </div>
                         </div>
                     </div>
@@ -199,11 +144,23 @@
     <script src="../public/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
     <script src="../public/js/jqBootstrapValidation.js"></script>
 
+    <!-- Script for Google Authentication -->
+    <script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
+
     <!-- Contact Form JavaScript -->
     <script src="../public/js/contact_me.js"></script>
 
     <!-- Custom scripts for this template -->
     <script src="../public/js/freelancer.min.js"></script>
+
+    <script>
+      function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
+        });
+      }
+    </script>
 
 </body>
 </html>
