@@ -27,6 +27,15 @@ mainApp.controller('UserController', function($rootScope, $scope, $location, $ht
             });
     }
 
+    $scope.download = function(){
+      var json2xls = require('json2xls');
+      var fs = require('fs');
+      var xls = json2xls($scope.contributions);
+      fs.writeFileSync('data.xlsx', xls, 'binary');
+
+    }
+
+
     $scope.getData();
 
 
