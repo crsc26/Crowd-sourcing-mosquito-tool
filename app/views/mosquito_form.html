@@ -1,27 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="app">
+<link href="public/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="public/css/personal.css">
+<link rel="stylesheet" type="text/css" href="public/css/main.css">
 
-<head>
-	<title>Ayudanos</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="../public/img/icons/favicon.ico"/>
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../public/css/main.css">
-	<link rel="stylesheet" type="text/css" href="../public/vendor/bootstrap/css/bootstrap.min.css">
-
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../public/css/personal.css">
-	<link href="../public/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
-
-
-	<!--===============================================================================================-->
-</head>
-
-<body ng-controller="Form_Controller" style="background-color: #7d8a35;">
 	<div class="container">
 	  <form id="contact" action="">
 	    <h1>{{appName}}</h1>
@@ -43,9 +23,9 @@
 		<fieldset>
 			<label>Tipo de mosquito :</label>
 			<div class="row justify-content-center form-group">
-				<div class="col-md-3 box"><label class="btn"><a data-toggle="modal" data-target="#exampleModal"><img src="../public/img/aedes.jpg" alt="..." class="img-thumbnail img-check"></a><input type="radio" name="chk1" id="item1" ng-model="type" value="aedes" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquito tigre (Aedes albopictus)</figcaption></div>
-				<div class="col-md-3 box"><label class="btn"><a data-toggle="modal" data-target="#exampleModal2"><img src="../public/img/anopheles.jpg" alt="..." class="img-thumbnail img-check"></a><input type="radio" name="chk1" id="item2" ng-model="type" value="anopheles" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquito Anopheles</figcaption></div>
-				<div class="col-md-3 box"><label class="btn"><a data-toggle="modal" data-target="#exampleModal3"><img src="../public/img/culex.jpg" alt="..." class="img-thumbnail img-check"></a><input type="radio" name="chk1" id="item3" ng-model="type" value="culex" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquito Culex</figcaption></div>
+				<div class="col-md-3 box"><label class="btn"><a data-toggle="modal" data-target="#exampleModal"><img src="public/img/aedes.jpg" alt="..." class="img-thumbnail img-check"></a><input type="radio" name="chk1" id="item1" ng-model="type" value="aedes" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquito tigre (Aedes albopictus)</figcaption></div>
+				<div class="col-md-3 box"><label class="btn"><a data-toggle="modal" data-target="#exampleModal2"><img src="public/img/anopheles.jpg" alt="..." class="img-thumbnail img-check"></a><input type="radio" name="chk1" id="item2" ng-model="type" value="anopheles" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquito Anopheles</figcaption></div>
+				<div class="col-md-3 box"><label class="btn"><a data-toggle="modal" data-target="#exampleModal3"><img src="public/img/culex.jpg" alt="..." class="img-thumbnail img-check"></a><input type="radio" name="chk1" id="item3" ng-model="type" value="culex" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquito Culex</figcaption></div>
 			</div>
 
 			<div class="wrapper">
@@ -72,7 +52,7 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<img src="../public/img/aedes.jpg" alt="Aedes albopictus" style="max-width: 70%;" class="mx-auto d-block">
+						<img src="public/img/aedes.jpg" alt="Aedes albopictus" style="max-width: 70%;" class="mx-auto d-block">
 						<p>Aedes albopictus: también llamado mosquito tigre, es el principal vector de los virus que causan el dengue. Se caracteriza por su coloración negra con ornamentación blanca en tórax y abdomen.</p>
 					</div>
 					<div class="modal-footer">
@@ -93,7 +73,7 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<img src="../public/img/anopheles.jpg" alt="Anopheles" style="max-width: 70%;" class="mx-auto d-block">
+						<img src="public/img/anopheles.jpg" alt="Anopheles" style="max-width: 70%;" class="mx-auto d-block">
 						<p>Anopheles: mosquito transmisor de la malaria. Se puede distinguir de otros mosquitos por la presencia de escamas sobre las alas abdomen y cuando su postura es en reposo, ya que dispone su abdomen de forma empinada.</p>
 					</div>
 					<div class="modal-footer">
@@ -114,7 +94,7 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<img src="../public/img/culex.jpg" alt="Culex" style="max-width: 70%;" class="mx-auto d-block">
+						<img src="public/img/culex.jpg" alt="Culex" style="max-width: 70%;" class="mx-auto d-block">
 						<p>Culex: transmisor del Virus del Nilo Occidental, filariasis, entre otras enfermedades. Se caracteriza porque generalmente es un mosquito unicolor, con abdomen marrón oscuro.</p>
 					</div>
 					<div class="modal-footer">
@@ -129,9 +109,9 @@
 			<div class="row justify-content-center form-group">
 
 			<div class="row justify-content-center form-group">
-				<div class="col-md-3 box"><label class="btn"><img src="../public/img/flying_mosquito.png" alt="..." class="img-thumbnail img-check"><input type="radio" name="av1" id="item4" ng-model="avistamiento" value="flying" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquitos volando</figcaption></div>
-				<div class="col-md-3 box"><label class="btn"><img src="../public/img/mosquito_water.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="av2" id="item5" ng-model="avistamiento"  value="water" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquitos en agua</figcaption></div>
-				<div class="col-md-3 box"><label class="btn"><img src="../public/img/mosquito_larvae.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="av3" id="item6" ng-model="avistamiento"  value="larvae" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Larvas</figcaption></div>
+				<div class="col-md-3 box"><label class="btn"><img src="public/img/flying_mosquito.png" alt="..." class="img-thumbnail img-check"><input type="radio" name="av1" id="item4" ng-model="avistamiento" value="flying" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquitos volando</figcaption></div>
+				<div class="col-md-3 box"><label class="btn"><img src="public/img/mosquito_water.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="av2" id="item5" ng-model="avistamiento"  value="water" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquitos en agua</figcaption></div>
+				<div class="col-md-3 box"><label class="btn"><img src="public/img/mosquito_larvae.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="av3" id="item6" ng-model="avistamiento"  value="larvae" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Larvas</figcaption></div>
 			</div>
 
 			<div class="wrapper">
@@ -169,52 +149,10 @@
 	  </form>
 		</div>
 
-
-<!--=====Angular===================================================================================-->
-	<script src="../../node_modules/angular/angular.min.js"></script>
-
-<!--===============================================================================================-->
-	<script src="../public/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="../public/vendor/bootstrap/js/popper.js"></script>
-	<script src="../public/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="../public/vendor/select2/select2.min.js"></script>
+	<script src="public/vendor/select2/select2.min.js"></script>
 	<script>
 		$(".selection-2").select2({
 			minimumResultsForSearch: 20,
 			dropdownParent: $('#dropDownSelect1')
 		});
 	</script>
-
-<!--===== ng-map js ============================================================================-->
-<script src="../../bower_components/ngmap/build/scripts/ng-map.min.js"></script>
-
-<!--===== Google Maps API ============================================================================-->
-<script src="http://maps.google.com/maps/api/js?key=AIzaSyB7OEYVCAHCUAxg2ucI9zIGc4bvomiHuLU&libraries=places"></script>
-
-<!--===== Google Authentication ============================================================================-->
-<script src="../controllers/google_auth.js"></script>
-
-<!--===== Angular modules ============================================================================-->
-<script src="../controllers/mosquito_form_controller.js"></script>
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-
-<!-- Bootstrap core JavaScript -->
-<script src="../public/vendor/jquery/jquery.min.js"></script>
-<script src="../public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Plugin JavaScript -->
-<script src="../public/vendor/jquery-easing/jquery.easing.min.js"></script>
-<script src="../public/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-<script src="../public/js/jqBootstrapValidation.js"></script>
-
-<!-- Contact Form JavaScript -->
-<script src="../public/js/contact_me.js"></script>
-
-<!-- Custom scripts for this template -->
-<script src="../public/js/freelancer.min.js"></script>
-
-</body>
-</html>
