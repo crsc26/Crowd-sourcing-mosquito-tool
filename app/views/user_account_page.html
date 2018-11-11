@@ -1,149 +1,164 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="app">
-<head>
-  <title>Bienvenido</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--===============================================================================================-->
-  <link rel="icon" type="image/png" href="../public/img/icons/favicon.ico"/>
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="../public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="../public/css/main.css">
-  <link rel="stylesheet" type="text/css" href="../public/vendor/bootstrap/css/bootstrap.min.css">
-
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="../public/css/personal.css">
-  <link href="../public/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
-
-  <!--=================================== Google Authentication ===========================================-->
-  <meta name="google-signin-client_id" content="243072573298-3280l16cl2ourd5k3520ksf4merjb391.apps.googleusercontent.com">
-
-</head>
-
+<style>
+  .table-wrapper-scroll-y {
+    display: block;
+    max-height: 200px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  body{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+  }
+  .emp-profile{
+      padding: 3%;
+      margin-top: 3%;
+      margin-bottom: 3%;
+      border-radius: 0.5rem;
+      background: #fff;
+  }
+  .profile-img{
+      text-align: center;
+  }
+  .profile-img img{
+      width: 70%;
+      height: 100%;
+  }
+  .profile-img .file {
+      position: relative;
+      overflow: hidden;
+      margin-top: -20%;
+      width: 70%;
+      border: none;
+      border-radius: 0;
+      font-size: 15px;
+      background: #212529b8;
+  }
+  .profile-img .file input {
+      position: absolute;
+      opacity: 0;
+      right: 0;
+      top: 0;
+  }
+  .profile-head h5{
+      color: #333;
+  }
+  .profile-head h6{
+      color: #0062cc;
+  }
+  .profile-edit-btn{
+      border: none;
+      border-radius: 1.5rem;
+      width: 70%;
+      padding: 2%;
+      font-weight: 600;
+      color: #6c757d;
+      cursor: pointer;
+  }
+  .proile-rating{
+      font-size: 12px;
+      color: #818182;
+      margin-top: 5%;
+  }
+  .proile-rating span{
+      color: #495057;
+      font-size: 15px;
+      font-weight: 600;
+  }
+  .profile-head .nav-tabs{
+      margin-bottom:5%;
+  }
+  .profile-head .nav-tabs .nav-link{
+      font-weight:600;
+      border: none;
+  }
+  .profile-head .nav-tabs .nav-link.active{
+      border: none;
+      border-bottom:2px solid #0062cc;
+  }
+  .profile-work{
+      padding: 14%;
+      margin-top: -15%;
+  }
+  .profile-work p{
+      font-size: 12px;
+      color: #818182;
+      font-weight: 600;
+      margin-top: 10%;
+  }
+  .profile-work a{
+      text-decoration: none;
+      color: #495057;
+      font-weight: 600;
+      font-size: 14px;
+  }
+  .profile-work ul{
+      list-style: none;
+  }
+  .profile-tab label{
+      font-weight: 600;
+  }
+  .profile-tab p{
+      font-weight: 600;
+      color: #0062cc;
+  }
+</style>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
-<body style="background-color: #7d8a35;" ng-controller="User_Controller">
-    <div class="container emp-profile">
+<div class="container emp-profile">
+        <form method="post">
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                        <img src="{{photo}}" alt=""/>
                     </div>
                 </div>
-
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <div class="profile-head">
-                        <h5>Bienvenid@ Kshiti Ghelani</h5>
-                        <h6>En esta página podrás encontrar tus aportaciones</h6>
+                                <h5>
+                                    Welcome {{name}} !
+                                </h5>
+                                <h6>
+                                    {{email}}
+                                </h6>
+                                <p class="proile-rating">Contributions: <span>0</span></p>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Aportaciones</a>
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#/user/#home" role="tab" aria-controls="home" aria-selected="true">My contributions</a>
                             </li>
                         </ul>
+                        <div class="table-wrapper-scroll-y">
+                          <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>Type</th>
+                                  <th>Temperature</th>
+                                  <th>Coors</th>
+                                  <th>Comments</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr ng-repeat="c in contributions">
+                                  <td>{{c.Tipo}}</td>
+                                  <td>{{c.Temperatura.substring(0, 4)}}°C</td>
+                                  <td>{{c.Coordenadas}}</td>
+                                  <td>{{c.Comentario}}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
                     </div>
                 </div>
-
-                <div class="col-md-2">
-                  <button type="button" class="btn btn-danger" onclick="signOut();" href="https://accounts.google.com/Logout?hl=en&amp;continue=https://mail.google.com/mail&amp;service=mail&amp;timeStmp=1541657981&amp;secTok=.AG5fkS9RZMWwsrmEG-WZZGnKAMMIzrtZEg">Cerrar Sesión</button>
-                </div>
-
             </div>
-
             <div class="row">
-
                 <div class="col-md-4">
                     <div class="profile-work">
-                        <p>Enlaces:</p>
-                        <a href="">Tus aportaciones</a><br/>
-                        <a href="">Mapa mundial de aportaciones</a><br/>
-                        <a href="">Nueva aportación</a>
-                    </div>
-                </div>
-
-                <div class="col-md-8 container">
-                    <div class="tab-content profile-tab" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <div class="row">
-                              <table class="table">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                        </div>
+                        <p>LINKS</p>
+                        <a href="/app/#/form">New contribution</a><br/>
+                        <a href="/app/#/map">Map of all contributions</a><br/>
+                        <a href="">Download contribution data</a>
                     </div>
                 </div>
             </div>
-        </div>
-    <!--===== ng-map js ============================================================================-->
-
-    <!--===== Google Maps API ============================================================================-->
-    <script src="http://maps.google.com/maps/api/js?key=AIzaSyB7OEYVCAHCUAxg2ucI9zIGc4bvomiHuLU&libraries=places"></script>
-
-    <!--===== Google Authentication ============================================================================-->
-
-    <!--===== Angular modules ============================================================================-->
-    <script src="../../node_modules/angular/angular.min.js"></script>
-
-    <script src="../controllers/user_view.js"></script>
-
-    	<!-- Global site tag (gtag.js) - Google Analytics -->
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="../public/vendor/jquery/jquery.min.js"></script>
-    <script src="../public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="../public/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="../public/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="../public/js/jqBootstrapValidation.js"></script>
-
-    <!-- Script for Google Authentication -->
-    <script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="../public/js/contact_me.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="../public/js/freelancer.min.js"></script>
-
-    <script>
-      function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
-          console.log('User signed out.');
-        });
-      }
-    </script>
-
-</body>
-</html>
+        </form>
+    </div>

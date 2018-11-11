@@ -27,7 +27,8 @@ mainApp.controller('StudentController', function($rootScope, $scope, $http, NgMa
           "type" : $scope.type,
           "seen" : $scope.avistamiento,
           "comments" : $scope.comments,
-          "temp" : $scope.tmp
+          "temp" : $scope.tmp,
+          "user" : $rootScope.user.getEmail()
         }
 
         var str = JSON.stringify(jsn);
