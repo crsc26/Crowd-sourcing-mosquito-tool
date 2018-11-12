@@ -100,6 +100,20 @@
       font-weight: 600;
       color: #0062cc;
   }
+
+  table .header-fixed{
+      position: fixed;
+      top: 40px;
+      z-index: 1020; /* 10 less than .navbar-fixed to prevent any overlap */
+      border-bottom: 1px solid #d5d5d5;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+      -webkit-box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
+      -moz-box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
+      box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
+      filter: progid:DXImageTransform.Microsoft.gradient(enabled=false); /* IE6-9 */
+    }
 </style>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -108,55 +122,55 @@
 <div class="container emp-profile">
         <form method="post">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="profile-img">
                         <img src="{{photo}}" alt=""/>
                     </div>
+
+                    <div class="profile-work">
+                        <p>LINKS</p>
+                        <a href="/app/#/form">New contribution</a><br/>
+                        <a href="/app/#/map">World map of contributions</a><br/>
+                        <a href="/app/#/user" ng-click='downloadCSV({ filename: "stock-data.csv" });'>Download contribution data</a>
+                    </div>
                 </div>
+
                 <div class="col-md-8">
-                    <div class="profile-head">
-                                <h5>
-                                    Welcome {{name}} !
-                                </h5>
-                                <h6>
-                                    {{email}}
-                                </h6>
-                                <p class="proile-rating">Contributions: <span>{{contributions.length}}</span></p>
+                    <div class="profile-head" style="overflow:auto;">
+                        <h4>
+                            Welcome {{name}}!
+                        </h4>
+                        <h6>
+                            {{email}}
+                        </h6>
+                        <p>Contributions: <span>{{contributions.length}}</span></p>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#/user/#home" role="tab" aria-controls="home" aria-selected="true">My contributions</a>
                             </li>
                         </ul>
-                        <div class="table-wrapper-scroll-y">
-                          <table class="table">
-                              <thead>
-                                <tr>
-                                  <th>Type</th>
-                                  <th>Temperature</th>
-                                  <th>Coors</th>
-                                  <th>Comments</th>
+                        <div class="table-wrapper-scroll-y table-responsive">
+                            <table class="table">
+                              <thead class="thead-light">
+                                <tr class="text-center">
+                                  <th class="th-lg">Type</th>
+                                  <th class="th-lg">Sighting</th>
+                                  <th class="th-lg">Temperature</th>
+                                  <th class="th-lg">Coordinates</th>
+                                  <th class="th-lg">Comments</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                <tr ng-repeat="c in contributions">
+                                <tr ng-repeat="c in contributions" class="text-center">
                                   <td>{{c.Tipo}}</td>
+                                  <td>{{c.Avistamiento}}</td>
                                   <td>{{c.Temperatura.substring(0, 4)}}°C</td>
                                   <td>{{c.Coordenadas}}</td>
                                   <td>{{c.Comentario}}</td>
                                 </tr>
                               </tbody>
                             </table>
-                          </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="profile-work">
-                        <p>LINKS</p>
-                        <a href="/app/#/form">New contribution</a><br/>
-                        <a href="/app/#/map">Map of all contributions</a><br/>
-                        <a href="#">Download contribution data</a>
+                        </div>
                     </div>
                 </div>
             </div>

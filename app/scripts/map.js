@@ -7,6 +7,8 @@ mainApp.controller('MapController', function($rootScope, $scope, $location, $htt
 
   ];
 
+  $scope.selectedMosquito = "";
+
   function getLocation() {
       if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(showPosition);
@@ -25,6 +27,7 @@ mainApp.controller('MapController', function($rootScope, $scope, $location, $htt
       $scope.$apply();
 
   }
+
   function getMarkers() {
     var response = [];
 
@@ -34,9 +37,28 @@ mainApp.controller('MapController', function($rootScope, $scope, $location, $htt
     }).then(function successCallback(data) {
               console.log(data.data);
               for(d in data.data){
-                console.log(JSON.parse(data.data[d].Coordenadas));
-                $scope.markers.push(JSON.parse(data.data[d].Coordenadas));
+                var coor = data.data[d].Coordenates;
+                coor = coor.replace(';', ',');
+                console.log(JSON.parse(coor));
+                $scope.markers.push(JSON.parse(coor));
               }
+          }, function errorCallback(response) {
+              console.log(response);
+          });
+
+  }
+
+  $scope.getInfo = function(coors, e) {
+    var c = JSON.stringify(e);
+    $http({
+      url: 'http://127.0.0.1:8080/seen/find',
+      params: {
+        coordenates : c
+      },
+      method: 'GET',
+    }).then(function successCallback(data) {
+              console.log(data.data);
+              $scope.selectedMosquito = data.data;
           }, function errorCallback(response) {
               console.log(response);
           });

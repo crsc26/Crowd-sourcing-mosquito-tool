@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
   <ng-map id="mapa" center="{{center}}" zoom="2" style='width: 100%; margin: 15px; height: 100vh'>
-    <marker ng-repeat="i in markers" position="{{i}}" on-dragend="getpos($event)"
+    <marker ng-repeat="i in markers" on-click="getInfo(i)" position="{{i}}" on-dragend="getpos($event)"
       animation="Animation.BOUNCE" animation="DROP" draggable="true"></marker>
   </ng-map>
 </div>
