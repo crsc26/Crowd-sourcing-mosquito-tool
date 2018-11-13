@@ -201,13 +201,15 @@
   display: flex;
   align-items: center;
 }
-
 /* -- Upload image in form-- */
+
+
 
 .btn-file {
     position: relative;
     overflow: hidden;
   }
+
   .btn-file input[type=file] {
     position: absolute;
     top: 0;
@@ -223,8 +225,10 @@
     cursor: inherit;
     display: block;
   }
+
   img{
   width:200px;
   height:200px;
   }
+
   

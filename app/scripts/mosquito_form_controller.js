@@ -14,6 +14,7 @@ mainApp.controller('StudentController', function($rootScope, $scope, $http, NgMa
       $scope.comments = "";
       $scope.weatherInfo = "";
       $scope.tmp = "";
+      $scope.mosquitoPhoto = "";
 
       $scope.getpos = function (event) {
           $scope.lat = event.latLng.lat();
@@ -28,7 +29,8 @@ mainApp.controller('StudentController', function($rootScope, $scope, $http, NgMa
           "seen" : $scope.avistamiento,
           "comments" : $scope.comments,
           "temp" : $scope.tmp,
-          "user" : $rootScope.user.getEmail()
+          "user" : $rootScope.user.getEmail(),
+          "img" : $scope.mosquitoPhoto
         }
 
         var str = JSON.stringify(jsn);
@@ -87,6 +89,10 @@ mainApp.controller('StudentController', function($rootScope, $scope, $http, NgMa
             // or server returns response with an error status.
           });
 
+      }
+
+      $scope.logFile = function(){
+        console.log($scope.mosquitoPhoto);
       }
 
 

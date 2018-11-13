@@ -1,4 +1,4 @@
-var mainApp = angular.module("mainApp", ['ngRoute', 'ngMap']);
+var mainApp = angular.module("mainApp", ['ngRoute', 'ngMap', 'naif.base64']);
 
 mainApp.config(function($routeProvider) {
 	$routeProvider
