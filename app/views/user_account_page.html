@@ -129,13 +129,18 @@
 
                 <div class="profile-work">
                     <p>LINKS</p>
+                    <button ng-click="getWeather()" class="btn btn-warning">New Contribution</button>
+                    <hr>
+                    <button ng-click="getWeather()" class="btn btn-warning">World map of contributions</button>
+                    <hr>
+                    <button ng-click="getWeather()" class="btn btn-warning">Download contribution data</button>
                     <a href="/app/#/form">New contribution</a><br/>
                     <a href="/app/#/map">World map of contributions</a><br/>
                     <a href="/app/#/user" ng-click='downloadCSV({ filename: "stock-data.csv" });'>Download contribution data</a>
                 </div>
             </div>
 
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <div class="profile-head" style="overflow:auto;">
                     <h4>
                         Welcome {{name}}!
@@ -171,6 +176,11 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+            </div>
+            <div class="col-md-2 justify-content-center">
+                <div class="col-md-12 float-rightr">
+                    <button type="button" class="btn btn-danger" onclick="signOut();" href="https://accounts.google.com/Logout?hl=en&amp;continue=https://mail.google.com/mail&amp;service=mail&amp;timeStmp=1541657981&amp;secTok=.AG5fkS9RZMWwsrmEG-WZZGnKAMMIzrtZEg">Log Out</button>
                 </div>
             </div>
         </div>
