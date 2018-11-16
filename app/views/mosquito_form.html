@@ -18,7 +18,7 @@
 		</div>
 
 		<p class="lead"><em>La latitud y longitud seleccionada es: {{latlng}}</em></p>
-		
+
 		<div class="container justify-content-center">
 			<div class="row justify-content-center align-items-center">
 				<div class="col-md-3"></div>
@@ -117,7 +117,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<fieldset>
 			<label>Tipo de avistamiento:</label>
 			<div class="row justify-content-center form-group">
@@ -141,14 +141,11 @@
 		<fieldset>
 			<div class="row">
 				<div class="col-8">
-					<input placeholder="Temperatura en Celsius" type="text" tabindex="1" value="{{tmp}}" autofocus/>
-				</div>
-				<div class="col-2">
-					<button ng-click="getWeather()" class="btn btn-warning">Obtener temperatura</button>
+					<input placeholder="Temperatura en Celsius" type="text" tabindex="1" value="{{tmp}}" autofocus disabled/>
 				</div>
 			</div>
 		</fieldset>
-		
+
 		<fieldset>
 			<textarea placeholder="¿Quieres agregar algún comentario?" tabindex="5" ng-model="comments"></textarea>
 		</fieldset>

@@ -59,6 +59,11 @@ mainApp.controller('MapController', function($rootScope, $scope, $location, $htt
     }).then(function successCallback(data) {
               console.log(data.data);
               $scope.selectedMosquito = data.data;
+              if(total == 0){
+                $scope.selectedMosquito.Poll["percentage_positive"] = 0;
+              } else {
+                $scope.selectedMosquito.Poll["percentage_positive"] = $scope.selectedMosquito.Poll.positive / total;
+              }
           }, function errorCallback(response) {
               console.log(response);
           });
@@ -67,6 +72,23 @@ mainApp.controller('MapController', function($rootScope, $scope, $location, $htt
 
   getMarkers();
 
+
+  $scope.sendVote = function(){
+    $http({
+      url: 'http://127.0.0.1:8080/poll/vote',
+      params: {
+        username: $rootScope.user.getEmail(),
+        type: $scope.type,
+        poll: $scope.selectedMosquito.Poll.poll
+      },
+      method: 'GET',
+    }).then(function successCallback(data) {
+              console.log(data.data);
+          }, function errorCallback(response) {
+              console.log(response);
+          });
+
+  }
 
 
 

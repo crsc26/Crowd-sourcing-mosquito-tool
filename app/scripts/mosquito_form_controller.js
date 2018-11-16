@@ -20,6 +20,7 @@ mainApp.controller('StudentController', function($rootScope, $scope, $http, NgMa
           $scope.lat = event.latLng.lat();
           $scope.lng = event.latLng.lng();
           $scope.latlng = [event.latLng.lat(), event.latLng.lng()];
+          $scope.getWeather();
       };
 
       $scope.debug = function(){
@@ -65,6 +66,7 @@ mainApp.controller('StudentController', function($rootScope, $scope, $http, NgMa
           var loc = this.getPlace().geometry.location;
           $scope.latlng = [loc.lat(), loc.lng()];
           $scope.center = [loc.lat(), loc.lng()];
+          $scope.getWeather();
       }
 
       $scope.openModal = function(i){
@@ -115,7 +117,7 @@ mainApp.controller('StudentController', function($rootScope, $scope, $http, NgMa
       }
 
 
-
+      $scope.getWeather();
       getLocation();
 
 });

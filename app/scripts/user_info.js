@@ -5,6 +5,15 @@ mainApp.controller('UserController', function($rootScope, $scope, $location, $ht
       $location.path('/');
     }
 
+    $scope.toWorldMap = function(){
+        $location.path('/map');
+    }
+
+    $scope.toNewContrib = function(){
+        $location.path('/form');
+    }
+
+
     console.log($rootScope.user);
 
     $scope.name = $rootScope.user.getName();

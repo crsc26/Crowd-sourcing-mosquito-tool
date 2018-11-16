@@ -115,6 +115,7 @@
       filter: progid:DXImageTransform.Microsoft.gradient(enabled=false); /* IE6-9 */
     }
 </style>
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -129,14 +130,11 @@
 
                 <div class="profile-work">
                     <p>LINKS</p>
-                    <button ng-click="getWeather()" class="btn btn-warning">New Contribution</button>
+                    <button ng-click="toNewContrib()" class="btn btn-warning">New Contribution</button>
                     <hr>
-                    <button ng-click="getWeather()" class="btn btn-warning">World map of contributions</button>
+                    <button ng-click="toWorldMap()" class="btn btn-warning">World map of contributions</button>
                     <hr>
-                    <button ng-click="getWeather()" class="btn btn-warning">Download contribution data</button>
-                    <a href="/app/#/form">New contribution</a><br/>
-                    <a href="/app/#/map">World map of contributions</a><br/>
-                    <a href="/app/#/user" ng-click='downloadCSV({ filename: "stock-data.csv" });'>Download contribution data</a>
+                    <button ng-click='downloadCSV({ filename: "stock-data.csv" });' class="btn btn-warning">Download contribution data</button>
                 </div>
             </div>
 
