@@ -141,7 +141,7 @@
 		<fieldset>
 			<div class="row">
 				<div class="col-8">
-					<input placeholder="Temperatura en Celsius" type="text" tabindex="1" value="{{tmp}}" required autofocus/>
+					<input placeholder="Temperatura en Celsius" type="text" tabindex="1" value="{{tmp}}" autofocus/>
 				</div>
 				<div class="col-2">
 					<button ng-click="getWeather()" class="btn btn-warning">Obtener temperatura</button>
@@ -156,6 +156,15 @@
 	    <fieldset>
 	      <button class="btn btn-success" id="contact-submit" ng-click="debug()">Submit</button>
 		</fieldset>
+
+		<button class="btn btn-large btn-primary" data-toggle="confirmation"
+				data-btn-ok-label="Continue" data-btn-ok-class="btn-success"
+				data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check"
+				data-btn-cancel-label="Go back!" data-btn-cancel-class="btn-danger"
+				data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="close"
+				data-title="Is it ok?" data-content="This might be dangerous">
+  			Submit button
+		</button>
 	</form>
 </div>
 
