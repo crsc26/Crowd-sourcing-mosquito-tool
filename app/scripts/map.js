@@ -59,6 +59,7 @@ mainApp.controller('MapController', function($rootScope, $scope, $location, $htt
     }).then(function successCallback(data) {
               console.log(data.data);
               $scope.selectedMosquito = data.data;
+              var total = $scope.selectedMosquito.Poll.other + $scope.selectedMosquito.Poll.anopheles + $scope.selectedMosquito.Poll.culex + $scope.selectedMosquito.Poll.aedes + $scope.selectedMosquito.Poll.positive;
               if(total == 0){
                 $scope.selectedMosquito.Poll["percentage_positive"] = 0;
               } else {
