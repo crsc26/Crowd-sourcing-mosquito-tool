@@ -5,8 +5,10 @@
     overflow-y: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
   }
-  body{
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+  body{ 
+    /* color: #DB5964; */
+    /*background-color: #DB5964; */
+    background: -webkit-linear-gradient(left, #003262, #DB5964);
   }
   .emp-profile{
       padding: 3%;
@@ -129,7 +131,11 @@
                 </div>
 
                 <div class="profile-work">
-                    <p>LINKS</p>
+                    <br>
+                    <h6>
+                        LINKS
+                    </h6>
+                    <br>
                     <button ng-click="toNewContrib()" class="btn btn-warning">New Contribution</button>
                     <hr>
                     <button ng-click="toWorldMap()" class="btn btn-warning">World map of contributions</button>
@@ -176,9 +182,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2 justify-content-center">
+            <div class="col-md-1 justify-content-center">
                 <div class="col-md-12 float-rightr">
                     <button type="button" class="btn btn-danger" onclick="signOut();" href="https://accounts.google.com/Logout?hl=en&amp;continue=https://mail.google.com/mail&amp;service=mail&amp;timeStmp=1541657981&amp;secTok=.AG5fkS9RZMWwsrmEG-WZZGnKAMMIzrtZEg">Log Out</button>
+                </div>
+                <br>
+                <div class="col-md-12 float-rightr">
+                    <button type="button" class="btn btn-warning" href="templates/home.html">Homepage</button>
                 </div>
             </div>
         </div>
