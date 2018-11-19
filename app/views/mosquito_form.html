@@ -77,6 +77,7 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 		</div>
 		<br>
 		
+		<!-- Upload photo section -->
 		<div class="container justify-content-center">
 			<div class="row justify-content-center align-items-center">
 				<div class="col-md-3"></div>
@@ -93,107 +94,11 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 		</div>
 		<br>
 
-
-
-
 		<!-- Portfolio Grid Section -->
 		<div class="container">
 			<h2 class="text-center text-uppercase text-secondary mb-0">Mosquitoes transmitters of diseases:</h2>
 			<br>
-			<div class="row">
-				<div class="col-md-6 col-lg-4">
-					<a class="portfolio-item d-block mx-auto" href="#modalAedes">
-					<div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-					</div>
-					<img class="img-fluid mx-auto d-block" src="public/img/portfolio/aedes.jpg" alt="Tiger mosquito">
-					<figcaption class="figure-caption text-center"><hr><h3>Tiger mosquito (Aedes albopictus)</h3></figcaption>
-					</a>
-				</div>
-				<div class="col-md-6 col-lg-4">
-					<a class="portfolio-item d-block mx-auto" href="#modalAnopheles">
-					<div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-					</div>
-					<img class="img-fluid mx-auto d-block" src="public/img/portfolio/anopheles.jpg" alt="Anopheles mosquito">
-					<figcaption class="figure-caption text-center"><hr><h3>Anopheles mosquito</h3></figcaption>
-					</a>
-				</div>
-				<div class="col-md-6 col-lg-4">
-					<a class="portfolio-item d-block mx-auto" href="#modalCulex">
-					<div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-					</div>
-					<img class="img-fluid mx-auto d-block" src="public/img/portfolio/culex.jpg" alt="Culex mosquito">
-					<figcaption class="figure-caption text-center"><br><hr><h3>Culex mosquito</h3></figcaption>
-					</a>
-				</div>
-			</div>
 		</div>
-		<br>
-
-		<!--
-		<div class="portfolio-modal mfp-hide" id="modalAedes">
-			<div class="portfolio-modal-dialog bg-white">
-				<a class="close-button d-none d-md-block portfolio-modal-dismiss">
-				<i class="fa fa-3x fa-times"></i>
-				</a>
-				<div class="container text-center">
-				<div class="row">
-					<div class="col-lg-4 mx-auto">
-					<h2 class="text-secondary text-uppercase mb-0">Tiger mosquito</h2>
-					<hr class="star-dark mb-5">
-					<img class="img-fluid mb-5" src="public/img/portfolio/aedes.jpg" alt="Aedes albopictus">
-					<p class="mb-5">Aedes albopictus: also called tiger mosquito, is the main vector of viruses that cause dengue. It is characterized by its black coloration with white ornamentation on the thorax and abdomen.</p>
-					<a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss">
-						<i class="fa fa-close"></i>
-						Close image</a>
-					</div>
-				</div>
-				</div>
-			</div>
-		</div>
-			  
-		<div class="portfolio-modal mfp-hide" id="modalAnopheles">
-			<div class="portfolio-modal-dialog bg-white">
-				<a class="close-button d-none d-md-block portfolio-modal-dismiss">
-				<i class="fa fa-3x fa-times"></i>
-				</a>
-				<div class="container text-center">
-				<div class="row">
-					<div class="col-lg-4 mx-auto">
-					<h2 class="text-secondary text-uppercase mb-0">Anopheles</h2>
-					<hr class="star-dark mb-5">
-					<img class="img-fluid mb-5" src="public/img/portfolio/anopheles.jpg" alt="Anopheles mosquito">
-					<p class="mb-5">Anopheles: mosquito transmitter of malaria disease. It can be distinguished from other mosquitoes because of the presence of scales on the wings and abdomen. Also, when its posture is at rest, its abdomen is steep.</p>
-					<a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss">
-						<i class="fa fa-close"></i>
-						Close image</a>
-					</div>
-				</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="portfolio-modal mfp-hide" id="modalCulex">
-			<div class="portfolio-modal-dialog bg-white">
-				<a class="close-button d-none d-md-block portfolio-modal-dismiss">
-				<i class="fa fa-3x fa-times"></i>
-				</a>
-				<div class="container text-center">
-				<div class="row">
-					<div class="col-lg-4 mx-auto">
-					<h2 class="text-secondary text-uppercase mb-0">Culex</h2>
-					<hr class="star-dark mb-5">
-					<img class="img-fluid mb-5" src="public/img/portfolio/culex.jpg" alt="Culex mosquito">
-					<p class="mb-5">Culex: transmitter of West Nile virus, filariasis, among other diseases. It is characterized because it is usually a sigle color mosquito, with a dark brown abdomen.</p>
-					
-					<a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss">
-						<i class="fa fa-close"></i>
-						Close image</a>
-					</div>
-				</div>
-				</div>
-			</div>
-		</div>
-		-->
 
 		<!-- Card group -->
 		<div class="row">
@@ -256,17 +161,11 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 					</div>
 				</div>
 			</div>
-	  	</div>
-
+		</div>
+		
 		<fieldset>
-			<h5 class="text-center text-secondary mb-0">Select the type of mosquito witnessed:</h5>
+			<h3 class="text-center text-secondary mb-0">Select the type of mosquito witnessed:</h3>
 			<br>
-			<div class="row justify-content-center form-group">
-				<div class="col-md-3 box"><label class="btn"><a data-toggle="modal" data-target="#modalAedes"><img src="public/img/aedes.jpg" alt="..." class="img-thumbnail img-check"></a><input type="radio" name="chk1" id="item1" ng-model="type" value="aedes" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquito tigre (Aedes albopictus)</figcaption></div>
-				<div class="col-md-3 box"><label class="btn"><a data-toggle="modal" data-target="#modalAnopheles"><img src="public/img/anopheles.jpg" alt="..." class="img-thumbnail img-check"></a><input type="radio" name="chk1" id="item2" ng-model="type" value="anopheles" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquito Anopheles</figcaption></div>
-				<div class="col-md-3 box"><label class="btn"><a data-toggle="modal" data-target="#modalCulex"><img src="public/img/culex.jpg" alt="..." class="img-thumbnail img-check"></a><input type="radio" name="chk1" id="item3" ng-model="type" value="culex" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquito Culex</figcaption></div>
-			</div>
-
 			<div class="wrapper">
 				<div class="toggle_radio">
 					<input type="radio" class="toggle_option" id="first_toggle" name="toggle_option" ng-model="type" value="aedes">
@@ -281,83 +180,47 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 		</fieldset>
 		<br>
 
-		<!-- Modal Aedes -->
-		<!--Eliminated: tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
-		<div class="portfolio-modal mfp-hide" id="modalAedes" >
-			<div class="modal-dialog modal-lg" role="document">
-				<div class="modal-content">
-					<div class="modal-header-mosquito">
-						<h5 class="modal-title" id="exampleModalLabel">Mosquito tigre (Aedes albopictus)</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
+		<!-- Types of sighting Section -->
+		
+		<div class="row justify-content-center">
+			<div class="container">
+				<h2 class="text-center text-uppercase text-secondary mb-0">Types of sighting:</h2>
+				<br>
+			</div>
+			<div class="wrapper">
+				<div class="row justify-content-center">
+					<div class="col-md-4 box">
+						<div class="card align-items-center" style="width: 17rem; height: 17rem;">
+							<div class="card-body">
+								<h5 class="card-title text-center">Flying mosquitoes</h5>
+								<img src="public/img/flying_mosquito.png" class="center-block" alt="Flying mosquito">
+							</div>
+						</div>
 					</div>
-					<div class="modal-body">
-						<img src="public/img/aedes.jpg" alt="Aedes albopictus" style="max-width: 70%;" class="mx-auto d-block">
-						<p>Aedes albopictus: también llamado mosquito tigre, es el principal vector de los virus que causan el dengue. Se caracteriza por su coloración negra con ornamentación blanca en tórax y abdomen.</p>
+					<div class="col-md-4 box">
+						<div class="card align-items-center" style="width: 17rem; height: 17rem;">
+							<div class="card-body">
+								<h5 class="card-title text-center">Mosquitoes in water</h5>
+								<img src="public/img/mosquito_water.jpg" class="center-block" alt="Mosquitoes in water">
+							</div>
+						</div>
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+					<div class="col-md-4 box">
+						<div class="card align-items-center" style="width: 17rem; height: 17rem;">
+							<div class="card-body">
+								<h5 class="card-title text-center">Larvae</h5>
+								<img src="public/img/mosquito_larvae.jpg" class="center-block" alt="Larvae">
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		-->
-
-		<!-- Modal Anopheles -->
-		<!--
-		<div class="modal fade" id="modalAnopheles" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-lg" role="document">
-				<div class="modal-content">
-					<div class="modal-header-mosquito">
-						<h5 class="modal-title" id="exampleModalLabel">Mosquito Anopheles</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<img src="public/img/anopheles.jpg" alt="Anopheles" style="max-width: 70%;" class="mx-auto d-block">
-						<p>Anopheles: mosquito transmisor de la malaria. Se puede distinguir de otros mosquitos por la presencia de escamas sobre las alas abdomen y cuando su postura es en reposo, ya que dispone su abdomen de forma empinada.</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		-->
-
-		<!-- Modal Culex -->
-		<!--
-		<div class="modal fade" id="modalCulex" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-lg" role="document">
-				<div class="modal-content">
-					<div class="modal-header-mosquito">
-						<h5 class="modal-title" id="exampleModalLabel">Mosquito Culex</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<img src="public/img/culex.jpg" alt="Culex" style="max-width: 70%;" class="mx-auto d-block">
-						<p>Culex: transmisor del Virus del Nilo Occidental, filariasis, entre otras enfermedades. Se caracteriza porque generalmente es un mosquito unicolor, con abdomen marrón oscuro.</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		-->
+		<br>
 
 		<fieldset>
-			<h5 class="text-center text-secondary mb-0">Select the type of sighting:</h5>
+			<h3 class="text-center text-secondary mb-0">Select the type of mosquito witnessed:</h3>
 			<br>
-			<div class="row justify-content-center form-group">
-				<div class="col-md-3 box"><label class="btn"><img src="public/img/flying_mosquito.png" alt="..." class="img-thumbnail img-check"><input type="radio" name="av1" id="item4" ng-model="avistamiento" value="flying" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Flying mosquitoes</figcaption></div>
-				<div class="col-md-3 box"><label class="btn"><img src="public/img/mosquito_water.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="av2" id="item5" ng-model="avistamiento"  value="water" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquitoes in water</figcaption></div>
-				<div class="col-md-3 box"><label class="btn"><img src="public/img/mosquito_larvae.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="av3" id="item6" ng-model="avistamiento"  value="larvae" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Larvae</figcaption></div>
-			</div>
 
 			<div class="wrapper">
 				<div class="toggle_radio">
@@ -371,16 +234,7 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 				</div>
 			</div>
 		</fieldset>
-
-		<!--
-		<fieldset>
-			<div class="row">
-				<div class="col-8">
-					<input placeholder="Temperature in Celsius" type="text" tabindex="1" value="{{tmp}}" autofocus disabled/>
-				</div>
-			</div>
-		</fieldset>
-		-->
+		<br>
 
 		<fieldset>
 			<textarea placeholder="Do you want to add a comment?" tabindex="5" ng-model="comments"></textarea>
