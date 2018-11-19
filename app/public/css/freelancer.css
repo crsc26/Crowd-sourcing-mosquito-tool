@@ -148,7 +148,7 @@ section h2 {
     transition: padding-top 0.3s, padding-bottom 0.3s;
   }
   #mainNav .navbar-brand {
-    font-size: 2em;
+    font-size: 1.9em;
     -webkit-transition: font-size 0.3s;
     transition: font-size 0.3s;
   }
@@ -173,12 +173,12 @@ section h2 {
 }
 
 header.masthead {
-  padding-top: calc(6rem + 72px);
+  padding-top: calc(6rem + 70px);
   padding-bottom: 6rem;
 }
 
 header.masthead h1 {
-  font-size: 3rem;
+  font-size: 2.4rem;
   line-height: 3rem;
 }
 
@@ -189,7 +189,7 @@ header.masthead h2 {
 
 @media (min-width: 992px) {
   header.masthead {
-    padding-top: calc(6rem + 106px);
+    padding-top: calc(5rem + 106px);
     padding-bottom: 6rem;
   }
   header.masthead h1 {
@@ -216,7 +216,7 @@ header.masthead h2 {
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
   opacity: 0;
-  background-color: rgba(24, 188, 156, 0.9);
+  background-color: #DB5964;
 }
 
 .portfolio .portfolio-item .portfolio-item-caption:hover {
@@ -340,7 +340,7 @@ a {
 }
 
 a:focus, a:hover, a:active {
-  color: #128f76;
+  color: #003262;
 }
 
 .btn {
@@ -369,8 +369,8 @@ a:focus, a:hover, a:active {
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background-color: #128f76;
-  border-color: #128f76;
+  background-color: #003262;
+  border-color: #003262;
 }
 
 .btn-secondary {

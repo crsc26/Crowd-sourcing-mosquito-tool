@@ -9,12 +9,28 @@ mainApp.controller('MapController', function($rootScope, $scope, $location, $htt
 
   $scope.selectedMosquito = "";
 
+
+  if($rootScope.user == null){
+    $location.path('/');
+  }
+
+  $scope.hideOptions = true;
+
   function getLocation() {
       if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(showPosition);
       } else {
           x.innerHTML = "Geolocation is not supported by this browser.";
       }
+  }
+
+  $scope.voteNote = function(){
+    $scope.hideOptions = false;
+  }
+
+  $scope.voteYes = function(){
+    $scope.hideOptions = true;
+    $scope.type = "yes";
   }
 
   var x = document.getElementById("demo");
@@ -50,6 +66,8 @@ mainApp.controller('MapController', function($rootScope, $scope, $location, $htt
 
   $scope.getInfo = function(coors, e) {
     var c = JSON.stringify(e);
+    $scope.hideOptions = true;
+    document.getElementById("modalButton").click();
     $http({
       url: 'http://127.0.0.1:8080/seen/find',
       params: {
@@ -63,7 +81,8 @@ mainApp.controller('MapController', function($rootScope, $scope, $location, $htt
               if(total == 0){
                 $scope.selectedMosquito.Poll["percentage_positive"] = 0;
               } else {
-                $scope.selectedMosquito.Poll["percentage_positive"] = $scope.selectedMosquito.Poll.positive / total;
+                $scope.selectedMosquito.Poll["percentage_positive"] = ($scope.selectedMosquito.Poll.positive / total) * 100;
+                $scope.selectedMosquito.Poll["percentage_positive"] = $scope.selectedMosquito.Poll["percentage_positive"].toFixed(2);
               }
           }, function errorCallback(response) {
               console.log(response);
@@ -75,6 +94,7 @@ mainApp.controller('MapController', function($rootScope, $scope, $location, $htt
 
 
   $scope.sendVote = function(){
+    document.getElementById("closeModal").click();
     $http({
       url: 'http://127.0.0.1:8080/poll/vote',
       params: {

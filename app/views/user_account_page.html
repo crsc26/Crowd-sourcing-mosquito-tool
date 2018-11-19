@@ -5,7 +5,7 @@
     overflow-y: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
   }
-  body{ 
+  body{
     /* color: #DB5964; */
     /*background-color: #DB5964; */
     background: -webkit-linear-gradient(left, #003262, #DB5964);
@@ -184,11 +184,11 @@
             </div>
             <div class="col-md-1 justify-content-center">
                 <div class="col-md-12 float-rightr">
-                    <button type="button" class="btn btn-danger" onclick="signOut();" href="https://accounts.google.com/Logout?hl=en&amp;continue=https://mail.google.com/mail&amp;service=mail&amp;timeStmp=1541657981&amp;secTok=.AG5fkS9RZMWwsrmEG-WZZGnKAMMIzrtZEg">Log Out</button>
+                    <button type="button" class="btn btn-danger" ng-click="toHome()" href="https://accounts.google.com/Logout?hl=en&amp;continue=https://mail.google.com/mail&amp;service=mail&amp;timeStmp=1541657981&amp;secTok=.AG5fkS9RZMWwsrmEG-WZZGnKAMMIzrtZEg">Log Out</button>
                 </div>
                 <br>
                 <div class="col-md-12 float-rightr">
-                    <button type="button" class="btn btn-warning" href="templates/home.html">Homepage</button>
+                    <button type="button" class="btn btn-warning" ng-click="toHome()">Homepage</button>
                 </div>
             </div>
         </div>

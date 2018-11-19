@@ -13,6 +13,10 @@ mainApp.controller('UserController', function($rootScope, $scope, $location, $ht
         $location.path('/form');
     }
 
+    $scope.toHome = function(){
+      $location.path('/');
+    }
+
 
     console.log($rootScope.user);
 
