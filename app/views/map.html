@@ -26,8 +26,8 @@ aria-hidden="true">
           <div class="row">
             <div class="col-md-5 col-example" style="margin-top:5%;">
               <div>
-                <img src="{{'data:image/png;base64,' + selectedMosquito.Photo}}" alt="Material Design for Bootstrap - dashboard" class="img-fluid">
-                <p class="text-center">{{selectedMosquito.Tipo}}</p>
+                <img src="{{'data:image/png;base64,' + selectedMosquito.Photo}}" alt="Photo of the user mosquito" class="img-fluid">
+                <p class="text-center"><strong>{{selectedMosquito.Tipo}}</strong></p>
                 <div class="card text-center" style="background: none;">
                   <h1 class="display-4">{{selectedMosquito.Poll.percentage_positive}}%</h1>
                   <p>of contributors say that this mosquito is {{selectedMosquito.Tipo}}</p>
@@ -78,8 +78,8 @@ aria-hidden="true">
 
       <!--Footer-->
       <div class="modal-footer">
-        <button class="btn btn-success" ng-click="sendVote()">Submit</button>
-        <button class="btn btn-danger" class="close" data-dismiss="modal" aria-label="Close">Discard changes</button>
+        <button class="btn btn-success" ng-click="sendVote()">Vote</button>
+        <button class="btn btn-danger" class="close" data-dismiss="modal" aria-label="Close">Close</button>
       </div>
     </div>
     <!--/.Content-->
