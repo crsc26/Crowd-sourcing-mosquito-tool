@@ -66,13 +66,6 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 			<div class="col-lg-4 mr-auto">
 				<h3 class="text-center text-secondary">The temperature of the coordinates is:</h3>
 				<h3 class="display-4 text-center">{{tmp}} °C</h3>
-				<!--
-				<div class="row">
-					<div class="col-8">
-						<input placeholder="Temperature in Celsius" type="text" tabindex="1" value="{{tmp}}" autofocus disabled/>
-					</div>
-				</div>
-				-->
 			</div>
 		</div>
 		<br>
@@ -169,7 +162,7 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 			<div class="wrapper">
 				<div class="toggle_radio">
 					<input type="radio" class="toggle_option" id="first_toggle" name="toggle_option" ng-model="type" value="aedes">
-					<input type="radio" checked class="toggle_option" id="second_toggle" name="toggle_option" ng-model="type" value="anopheles">
+					<input type="radio" class="toggle_option" id="second_toggle" name="toggle_option" ng-model="type" value="anopheles">
 					<input type="radio" class="toggle_option" id="third_toggle" name="toggle_option" ng-model="type" value="culex">
 					<label for="first_toggle"><p>Aedes</p></label>
 					<label for="second_toggle"><p>Anopheles</p></label>
@@ -177,11 +170,23 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 				<div class="toggle_option_slider"></div>
 				</div>
 			</div>
+			<!--
+			<div class="btn-group btn-group-toggle" data-toggle="buttons">
+				<label for="first_toggle" class="btn btn-secondary" >
+					<input type="radio" class="toggle_option" id="first_toggle" name="toggle_option" autocomplete="off" ng-model="type" value="aedes"> Aedes
+				</label>
+				<label for="first_toggle" class="btn btn-secondary">
+					<input type="radio" class="toggle_option" id="second_toggle" name="toggle_option" autocomplete="off" ng-model="type" value="anopheles"> Anopheles
+				</label>
+				<label for="first_toggle" class="btn btn-secondary">
+					<input type="radio" class="toggle_option" id="third_toggle" name="toggle_option" autocomplete="off" ng-model="type" value="culex"> Radio
+				</label>
+			</div>
+			-->
 		</fieldset>
 		<br>
 
 		<!-- Types of sighting Section -->
-		
 		<div class="row justify-content-center">
 			<div class="container">
 				<h2 class="text-center text-uppercase text-secondary mb-0">Types of sighting:</h2>
