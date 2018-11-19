@@ -1,11 +1,52 @@
-<link href="public/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="public/css/personal.css">
-<link rel="stylesheet" type="text/css" href="public/css/main.css">
+<style>
+body{
+/* color: #DB5964; */
+/*background-color: #DB5964; */
+/*background: -webkit-linear-gradient(left, #003262, #003262);*/
+background: linear-gradient(-90deg, #003262, #DB5964);
+}
+</style>
 
-<div class="container">
-	<form id="contact" action="">
+<header>
+	<link href="public/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="public/css/personal.css">
+	<link rel="stylesheet" type="text/css" href="public/css/main.css">
+	<link rel="stylesheet" type="text/css" href="public/css/freelancer.css">
+</header>
+
+
+<div class="container" id="formPage">
+	<!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+		<div class="container">
+			<!--Eliminated: href="#page-top"-->
+			<a class="navbar-brand js-scroll-trigger">Crowdsourcing mosquito</a>
+			<button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			Menu
+			<i class="fas fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item mx-0 mx-lg-1">
+						<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" ng-click="toHome()">Homepage</a>
+					</li>
+					<li class="nav-item mx-0 mx-lg-1" ng-hide="!logged">
+						<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#/user">My contributions</a>
+					</li>
+					<li class="nav-item mx-0 mx-lg-1" ng-hide="logged">
+						<div class="g-signin2" data-onsuccess="onSignIn" style="margin-top: 8%;"></div>
+					</li>
+					<li class="nav-item mx-0 mx-lg-1" ng-hide="!logged">
+						<a href="#/" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" onclick="signOut();">Sign out</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<form id="contact" action="" class="emp-profile h-100 justify-content-center">
 		<h1>{{appName}}</h1>
-		<h3>Colabora con la causa, selecciona o escribe el lugar de la presencia del mosquito:</h3>
+		<h3>Select or type in the place where mosquitos where spotted:</h3>
 
 		<fieldset>
 			<input places-auto-complete types="['geocode']" on-place-changed="placeMarker()" type="text" tabindex="1" autofocus/>
@@ -17,14 +58,31 @@
 			</ng-map>
 		</div>
 
-		<p class="lead"><em>La latitud y longitud seleccionada es: {{latlng}}</em></p>
-
+		<div class="row">
+			
+			<div class="col-md-6">
+				<h4 class="text-center text-secondary">The selected latitude and longitude is:</h4>
+				<h4 class="display-4 text-center">{{latlng}}</h4>
+			</div>
+			<div class="col-md-6">
+				<h4 class="text-center text-secondary">The temperature of the coordinates is:</h4>
+				<h4 class="display-4 text-center">{{tmp}}</h4>
+				<!--
+				<div class="row">
+					<div class="col-8">
+						<input placeholder="Temperature in Celsius" type="text" tabindex="1" value="{{tmp}}" autofocus disabled/>
+					</div>
+				</div>
+				-->
+			</div>
+		</div>
+		<br>
+		
 		<div class="container justify-content-center">
 			<div class="row justify-content-center align-items-center">
 				<div class="col-md-3"></div>
 				<div class="col-md-3 uploadfrm justify-content-center">
 					<button class="btn btn-primary btn-file justify-content-center">Browse photo of the mosquito<input type="file" onchange="readURL(this);" ng-model="mosquitoPhoto" base-sixty-four-input></button>
-
 				</div>
 				<div class="col-md-3 justify-content-center">
 					<div class="preview justify-content-center">
@@ -34,13 +92,126 @@
 				<div class="col-md-3"></div>
 			</div>
 		</div>
+		<br>
+
+
+
+
+		<!-- Portfolio Grid Section -->
+		<div class="container">
+			<h2 class="text-center text-uppercase text-secondary mb-0">Mosquitoes transmitters of diseases</h2>
+			<br>
+			<div class="row">
+				<div class="col-md-6 col-lg-4">
+					<a class="portfolio-item d-block mx-auto" href="#modalAedes">
+					<div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+					</div>
+					<img class="img-fluid mx-auto d-block" src="public/img/portfolio/aedes.jpg" alt="Tiger mosquito">
+					<figcaption class="figure-caption text-center"><hr><h3>Tiger mosquito (Aedes albopictus)</h3></figcaption>
+					</a>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<a class="portfolio-item d-block mx-auto" href="#modalAnopheles">
+					<div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+					</div>
+					<img class="img-fluid mx-auto d-block" src="public/img/portfolio/anopheles.jpg" alt="Anopheles mosquito">
+					<figcaption class="figure-caption text-center"><hr><h3>Anopheles mosquito</h3></figcaption>
+					</a>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<a class="portfolio-item d-block mx-auto" href="#modalCulex">
+					<div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+					</div>
+					<img class="img-fluid mx-auto d-block" src="public/img/portfolio/culex.jpg" alt="Culex mosquito">
+					<figcaption class="figure-caption text-center"><br><hr><h3>Culex mosquito</h3></figcaption>
+					</a>
+				</div>
+			</div>
+		</div>
+		<br>
+
+		<!-- Portfolio Modal 1 -->
+		<div class="portfolio-modal mfp-hide" id="modalAedes">
+			<div class="portfolio-modal-dialog bg-white">
+				<!-- Eliminated: href="#/"-->
+				<a class="close-button d-none d-md-block portfolio-modal-dismiss">
+				<i class="fa fa-3x fa-times"></i>
+				</a>
+				<div class="container text-center">
+				<div class="row">
+					<div class="col-lg-4 mx-auto">
+					<h2 class="text-secondary text-uppercase mb-0">Tiger mosquito</h2>
+					<hr class="star-dark mb-5">
+					<img class="img-fluid mb-5" src="public/img/portfolio/aedes.jpg" alt="Aedes albopictus">
+					<p class="mb-5">Aedes albopictus: also called tiger mosquito, is the main vector of viruses that cause dengue. It is characterized by its black coloration with white ornamentation on the thorax and abdomen.</p>
+					<!-- Eliminated: href="#/"-->
+					<a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss">
+						<i class="fa fa-close"></i>
+						Close image</a>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+			  
+		<!-- Portfolio Modal 2 -->
+		<div class="portfolio-modal mfp-hide" id="modalAnopheles">
+			<div class="portfolio-modal-dialog bg-white">
+				<!-- Eliminated: href="#/"-->
+				<a class="close-button d-none d-md-block portfolio-modal-dismiss">
+				<i class="fa fa-3x fa-times"></i>
+				</a>
+				<div class="container text-center">
+				<div class="row">
+					<div class="col-lg-4 mx-auto">
+					<h2 class="text-secondary text-uppercase mb-0">Anopheles</h2>
+					<hr class="star-dark mb-5">
+					<img class="img-fluid mb-5" src="public/img/portfolio/anopheles.jpg" alt="Anopheles mosquito">
+					<p class="mb-5">Anopheles: mosquito transmitter of malaria disease. It can be distinguished from other mosquitoes because of the presence of scales on the wings and abdomen. Also, when its posture is at rest, its abdomen is steep.</p>
+					<!-- Eliminated: href="#/"-->
+					<a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss">
+						<i class="fa fa-close"></i>
+						Close image</a>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Portfolio Modal 3 -->
+		<div class="portfolio-modal mfp-hide" id="modalCulex">
+			<div class="portfolio-modal-dialog bg-white">
+				<!-- Eliminated: href="#/"-->
+				<a class="close-button d-none d-md-block portfolio-modal-dismiss">
+				<i class="fa fa-3x fa-times"></i>
+				</a>
+				<div class="container text-center">
+				<div class="row">
+					<div class="col-lg-4 mx-auto">
+					<h2 class="text-secondary text-uppercase mb-0">Culex</h2>
+					<hr class="star-dark mb-5">
+					<img class="img-fluid mb-5" src="public/img/portfolio/culex.jpg" alt="Culex mosquito">
+					<p class="mb-5">Culex: transmitter of West Nile virus, filariasis, among other diseases. It is characterized because it is usually a sigle color mosquito, with a dark brown abdomen.</p>
+					<!-- Eliminated: href="#/"-->
+					<a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss">
+						<i class="fa fa-close"></i>
+						Close image</a>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+
+
+
 
 		<fieldset>
-			<label>Tipo de mosquito :</label>
+			<h5 class="text-center text-secondary mb-0">Select the type of mosquito witnessed:</h5>
+			<br>
 			<div class="row justify-content-center form-group">
-				<div class="col-md-3 box"><label class="btn"><a data-toggle="modal" data-target="#exampleModal"><img src="public/img/aedes.jpg" alt="..." class="img-thumbnail img-check"></a><input type="radio" name="chk1" id="item1" ng-model="type" value="aedes" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquito tigre (Aedes albopictus)</figcaption></div>
-				<div class="col-md-3 box"><label class="btn"><a data-toggle="modal" data-target="#exampleModal2"><img src="public/img/anopheles.jpg" alt="..." class="img-thumbnail img-check"></a><input type="radio" name="chk1" id="item2" ng-model="type" value="anopheles" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquito Anopheles</figcaption></div>
-				<div class="col-md-3 box"><label class="btn"><a data-toggle="modal" data-target="#exampleModal3"><img src="public/img/culex.jpg" alt="..." class="img-thumbnail img-check"></a><input type="radio" name="chk1" id="item3" ng-model="type" value="culex" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquito Culex</figcaption></div>
+				<div class="col-md-3 box"><label class="btn"><a data-toggle="modal" data-target="#modalAedes"><img src="public/img/aedes.jpg" alt="..." class="img-thumbnail img-check"></a><input type="radio" name="chk1" id="item1" ng-model="type" value="aedes" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquito tigre (Aedes albopictus)</figcaption></div>
+				<div class="col-md-3 box"><label class="btn"><a data-toggle="modal" data-target="#modalAnopheles"><img src="public/img/anopheles.jpg" alt="..." class="img-thumbnail img-check"></a><input type="radio" name="chk1" id="item2" ng-model="type" value="anopheles" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquito Anopheles</figcaption></div>
+				<div class="col-md-3 box"><label class="btn"><a data-toggle="modal" data-target="#modalCulex"><img src="public/img/culex.jpg" alt="..." class="img-thumbnail img-check"></a><input type="radio" name="chk1" id="item3" ng-model="type" value="culex" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquito Culex</figcaption></div>
 			</div>
 
 			<div class="wrapper">
@@ -55,9 +226,11 @@
 				</div>
 			</div>
 		</fieldset>
+		<br>
 
 		<!-- Modal Aedes -->
-		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<!--Eliminated: tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+		<div class="portfolio-modal mfp-hide" id="modalAedes" >
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
 					<div class="modal-header-mosquito">
@@ -76,9 +249,10 @@
 				</div>
 			</div>
 		</div>
+		-->
 
 		<!-- Modal Anopheles -->
-		<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal fade" id="modalAnopheles" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
 					<div class="modal-header-mosquito">
@@ -99,7 +273,7 @@
 		</div>
 
 		<!-- Modal Culex -->
-		<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal fade" id="modalCulex" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
 					<div class="modal-header-mosquito">
@@ -120,10 +294,12 @@
 		</div>
 
 		<fieldset>
-			<label>Tipo de avistamiento:</label>
+			<h5 class="text-center text-secondary mb-0">Select the type of sighting:</h5>
+			<br>
 			<div class="row justify-content-center form-group">
-				<div class="col-md-3 box"><label class="btn"><img src="public/img/flying_mosquito.png" alt="..." class="img-thumbnail img-check"><input type="radio" name="av1" id="item4" ng-model="avistamiento" value="flying" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquitos volando</figcaption></div><div class="col-md-3 box"><label class="btn"><img src="public/img/mosquito_water.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="av2" id="item5" ng-model="avistamiento"  value="water" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquitos en agua</figcaption></div>
-				<div class="col-md-3 box"><label class="btn"><img src="public/img/mosquito_larvae.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="av3" id="item6" ng-model="avistamiento"  value="larvae" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Larvas</figcaption></div>
+				<div class="col-md-3 box"><label class="btn"><img src="public/img/flying_mosquito.png" alt="..." class="img-thumbnail img-check"><input type="radio" name="av1" id="item4" ng-model="avistamiento" value="flying" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Flying mosquitoes</figcaption></div>
+				<div class="col-md-3 box"><label class="btn"><img src="public/img/mosquito_water.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="av2" id="item5" ng-model="avistamiento"  value="water" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Mosquitoes in water</figcaption></div>
+				<div class="col-md-3 box"><label class="btn"><img src="public/img/mosquito_larvae.jpg" alt="..." class="img-thumbnail img-check"><input type="radio" name="av3" id="item6" ng-model="avistamiento"  value="larvae" class="hidden" autocomplete="off"></label><figcaption class="figure-caption text-center">Larvae</figcaption></div>
 			</div>
 
 			<div class="wrapper">
@@ -131,24 +307,26 @@
 					<input type="radio" class="toggle_option" id="first_toggle_avistamiento" name="toggle_option" ng-model="avistamiento" value="flying">
 					<input type="radio" checked class="toggle_option" id="second_toggle_avistamiento" name="toggle_option" ng-model="avistamiento" value="water">
 					<input type="radio" class="toggle_option" id="third_toggle_avistamiento" name="toggle_option" ng-model="avistamiento" value="larvae">
-					<label for="first_toggle_avistamiento"><p>Mosquito volando</p></label>
-					<label for="second_toggle_avistamiento"><p>Mosquito en agua</p></label>
-					<label for="third_toggle_avistamiento"><p>Larvas</p></label>
+					<label for="first_toggle_avistamiento"><p>Flying mosquitoes</p></label>
+					<label for="second_toggle_avistamiento"><p>Mosquitoes in water</p></label>
+					<label for="third_toggle_avistamiento"><p>Larvae</p></label>
 				<div class="toggle_option_slider"></div>
 				</div>
 			</div>
 		</fieldset>
 
+		<!--
 		<fieldset>
 			<div class="row">
 				<div class="col-8">
-					<input placeholder="Temperatura en Celsius" type="text" tabindex="1" value="{{tmp}}" autofocus disabled/>
+					<input placeholder="Temperature in Celsius" type="text" tabindex="1" value="{{tmp}}" autofocus disabled/>
 				</div>
 			</div>
 		</fieldset>
+		-->
 
 		<fieldset>
-			<textarea placeholder="¿Quieres agregar algún comentario?" tabindex="5" ng-model="comments"></textarea>
+			<textarea placeholder="Do you want to add a comment?" tabindex="5" ng-model="comments"></textarea>
 		</fieldset>
 
 	    <fieldset>
@@ -192,4 +370,24 @@
 			reader.readAsDataURL(input.files[0]);
 		}
 	}
+</script>
+
+<!-- Script for Google Authentication -->
+<script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
+<script src="public/js/freelancer.min.js"></script>
+
+<script>
+    function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      angular.element(document.getElementById('formPage')).scope().getSession(profile);
+    }
+
+    function signOut() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        console.log('User signed out.');
+      });
+      angular.element(document.getElementById('formPage')).scope().logOut();
+
+    }
 </script>

@@ -5,7 +5,7 @@ mainApp.controller('StudentController', function($rootScope, $scope, $http, NgMa
         $location.path('/');
       }
 
-      $scope.appName = "¡Gracias por tu ayuda " + $rootScope.user.getName() + "!";
+      $scope.appName = "Thanks for your help " + $rootScope.user.getName() + "!";
       $scope.center = [20.61839, -100.41068];
       $scope.latlng = [20.61839, -100.41068];
 
@@ -119,5 +119,9 @@ mainApp.controller('StudentController', function($rootScope, $scope, $http, NgMa
 
       $scope.getWeather();
       getLocation();
+
+      $scope.toHome = function(){
+        $location.path('/');
+      }
 
 });
