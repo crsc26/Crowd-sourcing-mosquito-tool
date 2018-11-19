@@ -59,14 +59,13 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 		</div>
 
 		<div class="row">
-			
-			<div class="col-md-6">
-				<h4 class="text-center text-secondary">The selected latitude and longitude is:</h4>
+			<div class="col-lg-4 ml-auto">
+				<h3 class="text-center text-secondary">The selected latitude and longitude is:</h3>
 				<h4 class="display-4 text-center">{{latlng}}</h4>
 			</div>
-			<div class="col-md-6">
-				<h4 class="text-center text-secondary">The temperature of the coordinates is:</h4>
-				<h4 class="display-4 text-center">{{tmp}}</h4>
+			<div class="col-lg-4 mr-auto">
+				<h3 class="text-center text-secondary">The temperature of the coordinates is:</h3>
+				<h3 class="display-4 text-center">{{tmp}} °C</h3>
 				<!--
 				<div class="row">
 					<div class="col-8">
@@ -99,7 +98,7 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 
 		<!-- Portfolio Grid Section -->
 		<div class="container">
-			<h2 class="text-center text-uppercase text-secondary mb-0">Mosquitoes transmitters of diseases</h2>
+			<h2 class="text-center text-uppercase text-secondary mb-0">Mosquitoes transmitters of diseases:</h2>
 			<br>
 			<div class="row">
 				<div class="col-md-6 col-lg-4">
@@ -130,10 +129,9 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 		</div>
 		<br>
 
-		<!-- Portfolio Modal 1 -->
+		<!--
 		<div class="portfolio-modal mfp-hide" id="modalAedes">
 			<div class="portfolio-modal-dialog bg-white">
-				<!-- Eliminated: href="#/"-->
 				<a class="close-button d-none d-md-block portfolio-modal-dismiss">
 				<i class="fa fa-3x fa-times"></i>
 				</a>
@@ -144,7 +142,6 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 					<hr class="star-dark mb-5">
 					<img class="img-fluid mb-5" src="public/img/portfolio/aedes.jpg" alt="Aedes albopictus">
 					<p class="mb-5">Aedes albopictus: also called tiger mosquito, is the main vector of viruses that cause dengue. It is characterized by its black coloration with white ornamentation on the thorax and abdomen.</p>
-					<!-- Eliminated: href="#/"-->
 					<a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss">
 						<i class="fa fa-close"></i>
 						Close image</a>
@@ -154,10 +151,8 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 			</div>
 		</div>
 			  
-		<!-- Portfolio Modal 2 -->
 		<div class="portfolio-modal mfp-hide" id="modalAnopheles">
 			<div class="portfolio-modal-dialog bg-white">
-				<!-- Eliminated: href="#/"-->
 				<a class="close-button d-none d-md-block portfolio-modal-dismiss">
 				<i class="fa fa-3x fa-times"></i>
 				</a>
@@ -168,7 +163,6 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 					<hr class="star-dark mb-5">
 					<img class="img-fluid mb-5" src="public/img/portfolio/anopheles.jpg" alt="Anopheles mosquito">
 					<p class="mb-5">Anopheles: mosquito transmitter of malaria disease. It can be distinguished from other mosquitoes because of the presence of scales on the wings and abdomen. Also, when its posture is at rest, its abdomen is steep.</p>
-					<!-- Eliminated: href="#/"-->
 					<a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss">
 						<i class="fa fa-close"></i>
 						Close image</a>
@@ -178,10 +172,8 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 			</div>
 		</div>
 		
-		<!-- Portfolio Modal 3 -->
 		<div class="portfolio-modal mfp-hide" id="modalCulex">
 			<div class="portfolio-modal-dialog bg-white">
-				<!-- Eliminated: href="#/"-->
 				<a class="close-button d-none d-md-block portfolio-modal-dismiss">
 				<i class="fa fa-3x fa-times"></i>
 				</a>
@@ -192,7 +184,7 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 					<hr class="star-dark mb-5">
 					<img class="img-fluid mb-5" src="public/img/portfolio/culex.jpg" alt="Culex mosquito">
 					<p class="mb-5">Culex: transmitter of West Nile virus, filariasis, among other diseases. It is characterized because it is usually a sigle color mosquito, with a dark brown abdomen.</p>
-					<!-- Eliminated: href="#/"-->
+					
 					<a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss">
 						<i class="fa fa-close"></i>
 						Close image</a>
@@ -201,9 +193,70 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 				</div>
 			</div>
 		</div>
+		-->
 
+		<!-- Card group -->
+		<div class="row">
+			<!-- Card -->
+			<div class="col-md-4 d-flex align-items-stretch">
+				<div class="card mb-4">
+				<!-- Card image -->
+					<div class="view overlay">
+						<img class="card-img-top" src="public/img/aedes.jpg" alt="Aedes mosquito">
+						<a href="#!">
+						<div class="mask rgba-white-slight"></div>
+						</a>
+					</div>
+					<!-- Card content -->
+					<div class="card-body">
+						<!-- Title -->
+						<h3 class="card-title text-center">Tiger mosquito</h3>
+						<!-- Text -->
+						<p class="card-text" style="text-align: justify;">Aedes albopictus: also called tiger mosquito, is the main vector of viruses that cause dengue. It is characterized by its black coloration with white ornamentation on the thorax and abdomen.</p>
+					</div>
+				</div>
+			</div>
 
+			<div class="col-md-4 d-flex align-items-stretch">
+				<!-- Card -->
+				<div class="card mb-4">
+					<!-- Card image -->
+					<div class="view overlay">
+						<img class="card-img-top" src="public/img/portfolio/anopheles.jpg" alt="Anopheles mosquito">
+						<a href="#!">
+						<div class="mask rgba-white-slight"></div>
+						</a>
+					</div>
+					<!-- Card content -->
+					<div class="card-body">
+						<!-- Title -->
+						<h3 class="card-title text-center">Anopheles mosquito</h3>
+						<!-- Text -->
+						<p class="card-text" style="text-align: justify;">Anopheles: mosquito transmitter of malaria disease. It can be distinguished from other mosquitoes because of the presence of scales on the wings and abdomen. Also, when its posture is at rest, its abdomen is steep.</p>
+					</div>
+				</div>
+			</div>
 
+			<div class="col-md-4 d-flex align-items-stretch">
+				<!-- Card -->
+				<div class="card mb-4">
+					<!-- Card image -->
+					<div class="view overlay">
+						<img class="card-img-top" src="public/img/portfolio/culex.jpg" alt="Culex mosquito">
+						<a href="#!">
+						<div class="mask rgba-white-slight"></div>
+						</a>
+					</div>
+					<!-- Card content -->
+					<div class="card-body">
+						<!-- Title -->
+						<h3 class="card-title text-center">Culex mosquito</h3>
+						<!-- Text -->
+						<p class="card-text" style="text-align: justify;">Culex: transmitter of West Nile virus, filariasis, among other diseases. It is characterized because it is usually a sigle color mosquito, with a dark brown abdomen.</p>
+					</div>
+				</div>
+			</div>
+	  	</div>
 
 		<fieldset>
 			<h5 class="text-center text-secondary mb-0">Select the type of mosquito witnessed:</h5>
@@ -252,6 +305,7 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 		-->
 
 		<!-- Modal Anopheles -->
+		<!--
 		<div class="modal fade" id="modalAnopheles" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
@@ -271,8 +325,10 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 				</div>
 			</div>
 		</div>
+		-->
 
 		<!-- Modal Culex -->
+		<!--
 		<div class="modal fade" id="modalCulex" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
@@ -292,6 +348,7 @@ background: linear-gradient(-90deg, #003262, #DB5964);
 				</div>
 			</div>
 		</div>
+		-->
 
 		<fieldset>
 			<h5 class="text-center text-secondary mb-0">Select the type of sighting:</h5>
