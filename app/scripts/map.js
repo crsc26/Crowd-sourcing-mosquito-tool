@@ -111,6 +111,10 @@ mainApp.controller('MapController', function($rootScope, $scope, $location, $htt
 
   }
 
+  $scope.toHome = function(){
+    $location.path('/');
+  }
+
 
 
   getLocation();

@@ -1,3 +1,7 @@
+<header>
+  <link rel="stylesheet" type="text/css" href="public/vendor/magnific-popup/magnific-popup.css">
+  <link rel="stylesheet" type="text/css" href="public/css/freelancer.css">
+</header>
 
 <div class="row justify-content-center">
   <ng-map id="mapa" center="{{center}}" zoom="2" style='width: 100%; margin: 15px; height: 100vh'>
@@ -7,15 +11,14 @@
 </div>
 
 <!-- Central Modal Medium Info -->
-<div class="modal fade" id="centralModalInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+<div class="modal fade" id="centralModalInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <!--Content-->
     <div class="modal-content">
       <!--Header-->
       <div class="modal-header" style="background-color: #DB5964;">
         <h6 class="modal-title text-center" style="color: white;">Mosquito information</h6>
-        <button id="closeModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button id="closeModal" type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:white;">
           <span aria-hidden="true" class="white-text">&times;</span>
         </button>
       </div>
@@ -27,7 +30,9 @@ aria-hidden="true">
             <div class="col-md-5 col-example" style="margin-top:5%;">
               <div>
                 <img src="{{'data:image/png;base64,' + selectedMosquito.Photo}}" alt="Photo of the user mosquito" class="img-fluid">
-                <p class="text-center"><strong>{{selectedMosquito.Tipo}}</strong></p>
+                <br>
+                <h4 class="text-center text-secondary mb-0"><u>{{selectedMosquito.Tipo}}</u> mosquito</h4>
+                <br>
                 <div class="card text-center" style="background: none;">
                   <h1 class="display-4">{{selectedMosquito.Poll.percentage_positive}}%</h1>
                   <p>of contributors say that this mosquito is {{selectedMosquito.Tipo}}</p>
@@ -39,57 +44,125 @@ aria-hidden="true">
               <div class="container" style="margin-top:8%;">
 
                 <div class="row justify-content-center">
-                  <p class="text-center">Do you think this is a mosquito type <strong>{{selectedMosquito.Tipo}}?</strong></p>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="btn-group" data-toggle="buttons">
-                        <button class="btn btn-success form-check-input" type="radio" name="options" id="option1" autocomplete="off" ng-click="voteYes()">Yes</button>
-                      </div>
+                  <h4 class="text-center text-secondary mb-0">Do you think this is a mosquito type <u>{{selectedMosquito.Tipo}}</u>?</h4>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-lg-4 ml-auto">
+                    <div class="btn-group" data-toggle="buttons">
+                      <button class="btn btn-lg btn-success form-check-input" type="radio" name="options" id="option1" autocomplete="off" ng-click="voteYes()">Yes!</button>
                     </div>
-                    <div class="col-md-6">
-                      <div class="btn-group" data-toggle="buttons">
-                        <button class="btn btn-danger form-check-input" type="radio" name="options" id="option2" autocomplete="off" ng-click="voteNote()">No</button>
-                      </div>
+                  </div>
+                  <div class="col-lg-4 mr-auto">
+                    <div class="btn-group" data-toggle="buttons">
+                      <button class="btn btn-lg btn-danger form-check-input" type="radio" name="options" id="option2" autocomplete="off" ng-click="voteNote()">No</button>
                     </div>
                   </div>
                 </div>
 
-                <br>
-
                 <div class="col-md-12 text-center" ng-hide="hideOptions">
                   <div class="container" style="margin-top:8%;">
-
-                    <div class="row justify-content-center">
-                      <p class="text-center">What type is this mosquito then?</p>
-                      <div class="row">
-                        <label class="radio-inline" ng-if="selectedMosquito.Tipo != 'aedes'"><input type="radio" name="optradio" value="aedes" checked ng-model="type">Aedes</label>
-                        <label class="radio-inline" ng-if="selectedMosquito.Tipo != 'anopheles'"><input type="radio" name="optradio" value="anopheles" ng-model="type">Anopheles</label>
-                        <label class="radio-inline" ng-if="selectedMosquito.Tipo != 'culex'"><input type="radio" name="optradio" value="culex" ng-model="type">Culex</label>
-                        <label class="radio-inline"><input type="radio" name="optradio" value="other" ng-model="type">Other</label>
+                    <fieldset>
+                      <h3 class="text-center text-secondary mb-0" style="font-size: 30px; font-weight: 300;">What type is this mosquito then?</h3>
+                      <p>(scroll to select type)</p>
+                    </fieldset>
+                    
+                    <!-- Portfolio Grid Section -->
+                    <h2 class="text-center text-uppercase" style="color: #DB5964;">Mosquitoes transmitters of diseases:</h2>
+                    <br>
+                    <!-- Card group -->
+                    <div class="row">
+                      <!-- Card -->
+                      <div class="card mb-4" ng-if="selectedMosquito.Tipo != 'aedes'">
+                        <!-- Card image -->
+                        <div class="view overlay">
+                          <img class="card-img-top" src="public/img/aedes.jpg" alt="Aedes mosquito">
+                          <a href="#!">
+                          <div class="mask rgba-white-slight"></div>
+                          </a>
+                        </div>
+                        <!-- Card content -->
+                        <div class="card-body">
+                          <!-- Title -->
+                          <h3 class="card-title text-center">Tiger mosquito</h3>
+                          <!-- Text -->
+                          <p class="card-text" style="text-align: justify;"><strong>Aedes</strong> albopictus: also called tiger mosquito, is the main vector of viruses that cause dengue. It is characterized by its black coloration with white ornamentation on the thorax and abdomen.</p>
+                        </div>
+                      </div>
+                    
+                      <!-- Card -->
+                      <div class="card mb-4" ng-if="selectedMosquito.Tipo != 'anopheles'">
+                        <!-- Card image -->
+                        <div class="view overlay">
+                          <img class="card-img-top" src="public/img/portfolio/anopheles.jpg" alt="Anopheles mosquito">
+                          <a href="#!">
+                          <div class="mask rgba-white-slight"></div>
+                          </a>
+                        </div>
+                        <!-- Card content -->
+                        <div class="card-body">
+                          <!-- Title -->
+                          <h3 class="card-title text-center">Anopheles mosquito</h3>
+                          <!-- Text -->
+                          <p class="card-text" style="text-align: justify;">Anopheles: mosquito transmitter of malaria disease. It can be distinguished from other mosquitoes because of the presence of scales on the wings and abdomen. Also, when its posture is at rest, its abdomen is steep.</p>
+                        </div>
+                      </div>
+                    
+                      <!-- Card -->
+                      <div class="card mb-4" ng-if="selectedMosquito.Tipo != 'culex'">
+                        <!-- Card image -->
+                        <div class="view overlay">
+                          <img class="card-img-top" src="public/img/portfolio/culex.jpg" alt="Culex mosquito">
+                          <a href="#!">
+                          <div class="mask rgba-white-slight"></div>
+                          </a>
+                        </div>
+                        <!-- Card content -->
+                        <div class="card-body">
+                          <!-- Title -->
+                          <h3 class="card-title text-center">Culex mosquito</h3>
+                          <!-- Text -->
+                          <p class="card-text" style="text-align: justify;">Culex: transmitter of West Nile virus, filariasis, among other diseases. It is characterized because it is usually a sigle color mosquito, with a dark brown abdomen.</p>
+                        </div>
+                      </div>
+                    </div>
+                      
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label class="radio-inline" ng-if="selectedMosquito.Tipo != 'aedes'"><input type="radio" name="optradio" value="aedes" checked ng-model="type"><h5>Aedes</h5></label>
+                      </div>
+                      <div class="col-md-3">
+                        <label class="radio-inline" ng-if="selectedMosquito.Tipo != 'anopheles'"><input type="radio" name="optradio" value="anopheles" ng-model="type"><h5>Anopheles</h5></label>
+                      </div>
+                      <div class="col-md-3">
+                        <label class="radio-inline" ng-if="selectedMosquito.Tipo != 'culex'"><input type="radio" name="optradio" value="culex" ng-model="type"><h5>Culex</h5></label>
+                      </div>
+                      <div class="col-md-3">
+                        <label class="radio-inline"><input type="radio" name="optradio" value="other" ng-model="type"><h5>Other</h5></label>
                       </div>
                     </div>
 
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <br>
+          <!--Footer-->
+          <div class="modal-footer">
+            <button class="btn btn-success" ng-click="sendVote()">Vote</button>
+            <button class="btn btn-danger" class="close" data-dismiss="modal" aria-label="Close">Close</button>
+          </div>
+
         </div>
       </div>
-
-      <!--Footer-->
-      <div class="modal-footer">
-        <button class="btn btn-success" ng-click="sendVote()">Vote</button>
-        <button class="btn btn-danger" class="close" data-dismiss="modal" aria-label="Close">Close</button>
-      </div>
     </div>
-    <!--/.Content-->
   </div>
 </div>
 <!-- Central Modal Medium Info-->
 
-
 <!-- Mosquito Modals -->
-<!-- Modal Aedes -->
+<!--
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -110,7 +183,7 @@ aria-hidden="true">
   </div>
 </div>
 
-<!-- Modal Anopheles -->
+
 <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -131,7 +204,6 @@ aria-hidden="true">
   </div>
 </div>
 
-<!-- Modal Culex -->
 <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -151,7 +223,21 @@ aria-hidden="true">
     </div>
   </div>
 </div>
+-->
 
-<button type="button" id="modalButton" class="" data-toggle="modal" data-target="#centralModalInfo" style="visibility: hidden;">
-  Click Me !
-</button>
+<div class="row">
+  <div class="col-md-4">
+    <button type="button" id="modalButton" class="" data-toggle="modal" data-target="#centralModalInfo" style="visibility: hidden;">
+      Click Me !
+    </button>
+  </div>
+  <div class="col-md-4 ml-auto">
+  </div>
+  <div class="col-md-4 mr-auto">
+    <button type="button" class="btn" ng-click="toHome()" style="background-color: #003262; color: #fff; margin-left:auto; margin-right:auto; display:block;">Homepage</button>
+    <hr>
+    <button type="button" class="btn" href="#/user" style="background-color:#DB5964; color: #fff; margin-left:auto; margin-right:auto; display:block;">User page</button>
+    <br>
+  </div>
+</div>
+
