@@ -3,11 +3,43 @@
   <link rel="stylesheet" type="text/css" href="public/css/freelancer.css">
 </header>
 
-<div class="row justify-content-center">
-  <ng-map id="mapa" center="{{center}}" zoom="2" style='width: 100%; margin: 15px; height: 100vh'>
-    <marker ng-repeat="i in markers" on-click="getInfo(i)" position="{{i}}" on-dragend="getpos($event)"
-      animation="Animation.BOUNCE" animation="DROP" draggable="true" data-toggle="tooltip" data-placement="top" style="background-color: #DB5964;"></marker>
-  </ng-map>
+<button type="button" id="modalButton" class="" data-toggle="modal" data-target="#centralModalInfo" style="visibility: hidden;">
+  Click Me !
+</button>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav" style="padding-top: 0rem;padding-bottom: 0rem;">
+  <div class="container">
+    <!--Eliminated: href="#page-top"-->
+    <a class="navbar-brand js-scroll-trigger">Crowdsourcing mosquito</a>
+    <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    Menu
+    <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item mx-0 mx-lg-1">
+          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" ng-click="toHome()">Homepage</a>
+        </li>
+        <li class="nav-item mx-0 mx-lg-1" ng-hide="!logged">
+          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#/user">My contributions</a>
+        </li>
+        <li class="nav-item mx-0 mx-lg-1" ng-hide="logged">
+          <div class="g-signin2" data-onsuccess="onSignIn" style="margin-top: 8%;"></div>
+        </li>
+        <li class="nav-item mx-0 mx-lg-1" ng-hide="!logged">
+          <a href="#/" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" onclick="signOut();">Sign out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+    <ng-map id="mapa" center="{{center}}" zoom="2" style="width: 100%; height: 100vh;">
+      <marker ng-repeat="i in markers" on-click="getInfo(i)" position="{{i}}" on-dragend="getpos($event)"
+        animation="Animation.BOUNCE" animation="DROP" draggable="true" data-toggle="tooltip" data-placement="top" style="background-color: #F8B018;"></marker>
+    </ng-map>
 </div>
 
 <!-- Central Modal Medium Info -->
@@ -16,7 +48,7 @@
     <!--Content-->
     <div class="modal-content">
       <!--Header-->
-      <div class="modal-header" style="background-color: #DB5964;">
+      <div class="modal-header" style="background-color: #F8B018;">
         <h6 class="modal-title text-center" style="color: white;">Mosquito information</h6>
         <button id="closeModal" type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:white;">
           <span aria-hidden="true" class="white-text">&times;</span>
@@ -69,7 +101,7 @@
                     </fieldset>
                     
                     <!-- Portfolio Grid Section -->
-                    <h2 class="text-center text-uppercase" style="color: #DB5964;">Mosquitoes transmitters of diseases:</h2>
+                    <h2 class="text-center text-uppercase" style="color: #F8B018;">Mosquitoes transmitters of diseases:</h2>
                     <br>
                     <!-- Card group -->
                     <div class="row">
@@ -87,7 +119,7 @@
                           <!-- Title -->
                           <h3 class="card-title text-center">Tiger mosquito</h3>
                           <!-- Text -->
-                          <p class="card-text" style="text-align: justify;"><strong>Aedes</strong> albopictus: also called tiger mosquito, is the main vector of viruses that cause dengue. It is characterized by its black coloration with white ornamentation on the thorax and abdomen.</p>
+                          <p class="card-text" style="text-align: justify;"><strong>Aedes</strong> aegypti: also called tiger mosquito, is the main vector of viruses that cause dengue. It is characterized by its black coloration with white ornamentation on the thorax and abdomen.</p>
                         </div>
                       </div>
                     
@@ -129,16 +161,18 @@
                     </div>
                       
                     <div class="row">
-                      <div class="col-md-3">
+                      <div class="col-md-6">
                         <label class="radio-inline" ng-if="selectedMosquito.Tipo != 'aedes'"><input type="radio" name="optradio" value="aedes" checked ng-model="type"><h5>Aedes</h5></label>
                       </div>
-                      <div class="col-md-3">
+                      <div class="col-md-6">
                         <label class="radio-inline" ng-if="selectedMosquito.Tipo != 'anopheles'"><input type="radio" name="optradio" value="anopheles" ng-model="type"><h5>Anopheles</h5></label>
                       </div>
-                      <div class="col-md-3">
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
                         <label class="radio-inline" ng-if="selectedMosquito.Tipo != 'culex'"><input type="radio" name="optradio" value="culex" ng-model="type"><h5>Culex</h5></label>
                       </div>
-                      <div class="col-md-3">
+                      <div class="col-md-6">
                         <label class="radio-inline"><input type="radio" name="optradio" value="other" ng-model="type"><h5>Other</h5></label>
                       </div>
                     </div>
@@ -167,14 +201,14 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header-mosquito">
-        <h5 class="modal-title" id="exampleModalLabel">Mosquito tigre (Aedes albopictus)</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Mosquito tigre (Aedes aegypti)</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <img src="public/img/aedes.jpg" alt="Aedes albopictus" style="max-width: 70%;" class="mx-auto d-block">
-        <p>Aedes albopictus: también llamado mosquito tigre, es el principal vector de los virus que causan el dengue. Se caracteriza por su coloración negra con ornamentación blanca en tórax y abdomen.</p>
+        <img src="public/img/aedes.jpg" alt="Aedes aegypti" style="max-width: 70%;" class="mx-auto d-block">
+        <p>Aedes aegypti: también llamado mosquito tigre, es el principal vector de los virus que causan el dengue. Se caracteriza por su coloración negra con ornamentación blanca en tórax y abdomen.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -225,19 +259,32 @@
 </div>
 -->
 
-<div class="row">
-  <div class="col-md-4">
-    <button type="button" id="modalButton" class="" data-toggle="modal" data-target="#centralModalInfo" style="visibility: hidden;">
-      Click Me !
-    </button>
-  </div>
-  <div class="col-md-4 ml-auto">
-  </div>
-  <div class="col-md-4 mr-auto">
-    <button type="button" class="btn" ng-click="toHome()" style="background-color: #003262; color: #fff; margin-left:auto; margin-right:auto; display:block;">Homepage</button>
-    <hr>
-    <button type="button" class="btn" href="#/user" style="background-color:#DB5964; color: #fff; margin-left:auto; margin-right:auto; display:block;">User page</button>
-    <br>
-  </div>
-</div>
+<!-- Scripts -->
+<script src="public/vendor/select2/select2.min.js"></script>
 
+<script>
+	$(".selection-2").select2({
+		minimumResultsForSearch: 20,
+		dropdownParent: $('#dropDownSelect1')
+	});
+</script>
+
+<!-- Script for Google Authentication -->
+<script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
+<script src="public/js/freelancer.min.js"></script>
+
+<script>
+    function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      angular.element(document.getElementById('formPage')).scope().getSession(profile);
+    }
+
+    function signOut() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        console.log('User signed out.');
+      });
+      angular.element(document.getElementById('formPage')).scope().logOut();
+
+    }
+</script>
