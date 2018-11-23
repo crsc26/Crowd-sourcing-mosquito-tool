@@ -99,7 +99,7 @@
                       <h3 class="text-center text-secondary mb-0" style="font-size: 30px; font-weight: 300;">What type is this mosquito then?</h3>
                       <p>(scroll to select type)</p>
                     </fieldset>
-                    
+
                     <!-- Portfolio Grid Section -->
                     <h2 class="text-center text-uppercase" style="color: #F8B018;">Mosquitoes transmitters of diseases:</h2>
                     <br>
@@ -122,7 +122,7 @@
                           <p class="card-text" style="text-align: justify;"><strong>Aedes</strong> aegypti: also called tiger mosquito, is the main vector of viruses that cause dengue. It is characterized by its black coloration with white ornamentation on the thorax and abdomen.</p>
                         </div>
                       </div>
-                    
+
                       <!-- Card -->
                       <div class="card mb-4" ng-if="selectedMosquito.Tipo != 'anopheles'">
                         <!-- Card image -->
@@ -140,7 +140,7 @@
                           <p class="card-text" style="text-align: justify;">Anopheles: mosquito transmitter of malaria disease. It can be distinguished from other mosquitoes because of the presence of scales on the wings and abdomen. Also, when its posture is at rest, its abdomen is steep.</p>
                         </div>
                       </div>
-                    
+
                       <!-- Card -->
                       <div class="card mb-4" ng-if="selectedMosquito.Tipo != 'culex'">
                         <!-- Card image -->
@@ -159,24 +159,14 @@
                         </div>
                       </div>
                     </div>
-                      
-                    <div class="row">
-                      <div class="col-md-6">
-                        <label class="radio-inline" ng-if="selectedMosquito.Tipo != 'aedes'"><input type="radio" name="optradio" value="aedes" checked ng-model="type"><h5>Aedes</h5></label>
-                      </div>
-                      <div class="col-md-6">
-                        <label class="radio-inline" ng-if="selectedMosquito.Tipo != 'anopheles'"><input type="radio" name="optradio" value="anopheles" ng-model="type"><h5>Anopheles</h5></label>
-                      </div>
+                    <div class="btn-group" data-toggle="buttons">
+                      <button class="btn btn-lg btn-danger form-check-input" type="radio" name="options" id="culexVote" autocomplete="off" ng-click="type = 'culex'">Culex</button>
+                      <button class="btn btn-lg btn-danger form-check-input" type="radio" name="options" id="anophelesVote" autocomplete="off" ng-click="type = 'anopheles'">Anopheles</button>
+                      <button class="btn btn-lg btn-danger form-check-input" type="radio" name="options" id="aedesVote" autocomplete="off" ng-click="type = 'aedes'">Aedes</button>
                     </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <label class="radio-inline" ng-if="selectedMosquito.Tipo != 'culex'"><input type="radio" name="optradio" value="culex" ng-model="type"><h5>Culex</h5></label>
-                      </div>
-                      <div class="col-md-6">
-                        <label class="radio-inline"><input type="radio" name="optradio" value="other" ng-model="type"><h5>Other</h5></label>
-                      </div>
-                    </div>
-
+                  </div>
+                  <div style="margin-top: 5%">
+                      <input type="text" ng-model="type" placeholder="Other" class="form-control">
                   </div>
                 </div>
               </div>

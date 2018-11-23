@@ -33,6 +33,11 @@ mainApp.controller('MapController', function($rootScope, $scope, $location, $htt
     $scope.type = "yes";
   }
 
+  $scope.newValue = function(value){
+      console.log(value);
+      $scope.type = value;
+  }
+
   var x = document.getElementById("demo");
 
   function showPosition(position) {
@@ -67,7 +72,6 @@ mainApp.controller('MapController', function($rootScope, $scope, $location, $htt
   $scope.getInfo = function(coors, e) {
     var c = JSON.stringify(e);
     $scope.hideOptions = true;
-    document.getElementById("modalButton").click();
     $http({
       url: 'http://127.0.0.1:8080/seen/find',
       params: {
@@ -84,6 +88,9 @@ mainApp.controller('MapController', function($rootScope, $scope, $location, $htt
                 $scope.selectedMosquito.Poll["percentage_positive"] = ($scope.selectedMosquito.Poll.positive / total) * 100;
                 $scope.selectedMosquito.Poll["percentage_positive"] = $scope.selectedMosquito.Poll["percentage_positive"].toFixed(2);
               }
+              $scope.type = null;
+              document.getElementById("modalButton").click();
+
           }, function errorCallback(response) {
               console.log(response);
           });
