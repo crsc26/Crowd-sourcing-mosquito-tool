@@ -1,4 +1,4 @@
-var mainApp = angular.module("mainApp", ['ngRoute', 'ngMap', 'naif.base64']);
+var mainApp = angular.module("mainApp", ['ngRoute', 'ngMap', 'naif.base64', 'angular-hmac-sha512']);
 
 mainApp.config(function($routeProvider) {
 	$routeProvider

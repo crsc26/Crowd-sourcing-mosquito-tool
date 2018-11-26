@@ -1,4 +1,4 @@
-mainApp.controller('UserController', function($rootScope, $scope, $location, $http) {
+mainApp.controller('UserController', function($rootScope, $scope, $location, $http, $crypthmac) {
     console.log("User controller");
     $scope.logged = false;
 
@@ -9,22 +9,22 @@ mainApp.controller('UserController', function($rootScope, $scope, $location, $ht
     $scope.getSession = function(profile){
         $rootScope.user = profile;
         $scope.logged = true;
-    
+
         console.log($rootScope.user);
-    
+
         console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
         console.log('Name: ' + profile.getName());
         console.log('Image URL: ' + profile.getImageUrl());
         console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-    
+
         $scope.$apply();
       }
-    
+
       $scope.logOut = function(profile){
         $rootScope.user = null;
         $scope.logged = false;
         $scope.$apply();
-    
+
       }
 
     $scope.toWorldMap = function(){
@@ -108,23 +108,29 @@ mainApp.controller('UserController', function($rootScope, $scope, $location, $ht
         }
 
         $scope.downloadCSV = function(args) {
-            var data, filename, link;
-            var csv = convertArrayOfObjectsToCSV({
-                data: $scope.allContribs
-            });
-            if (csv == null) return;
+            var encrypttext = $crypthmac.encrypt($scope.password,"");
+            console.log(encrypttext);
 
-            filename = args.filename || 'export.csv';
+            if (encrypttext == "677b8ffe4bb86754fdb3e7fc41a0298ab85b0147cf75ade04bf6a99ad544a7e40ca988d1155a12d8b4dd8326f65dd6d9c97770525482b521cab5aebfae111d6c"){
+                var data, filename, link;
+                var csv = convertArrayOfObjectsToCSV({
+                    data: $scope.allContribs
+                });
+                if (csv == null) return;
 
-            if (!csv.match(/^data:text\/csv/i)) {
-                csv = 'data:text/csv;charset=utf-8,' + csv;
+                filename = args.filename || 'export.csv';
+
+                if (!csv.match(/^data:text\/csv/i)) {
+                    csv = 'data:text/csv;charset=utf-8,' + csv;
+                }
+                data = encodeURI(csv);
+
+                link = document.createElement('a');
+                link.setAttribute('href', data);
+                link.setAttribute('download', filename);
+                link.click();
             }
-            data = encodeURI(csv);
 
-            link = document.createElement('a');
-            link.setAttribute('href', data);
-            link.setAttribute('download', filename);
-            link.click();
         }
 
 
