@@ -53,7 +53,7 @@
       width: 70%;
       padding: 2%;
       font-weight: 600;
-      color: #6c757d;
+      color: #52443B;
       cursor: pointer;
   }
   .proile-rating{
@@ -78,7 +78,7 @@
       border-bottom:2px solid #0062cc;
   }
   .profile-work{
-      padding: 14%;
+      padding: 8%;
       margin-top: -15%;
   }
   .profile-work p{
@@ -119,20 +119,55 @@
     }
 </style>
 
-<head>
-</head>
+<header>
+    <link rel="stylesheet" type="text/css" href="public/vendor/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="public/css/freelancer.css">
+    <link rel="stylesheet" type="text/css" href="public/css/personal.css">
+</header>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav" style="padding-top: 0rem;padding-bottom: 0rem; background-color: #52443B;">
+    <div class="container">
+        <!--Eliminated: href="#page-top"-->
+        <a class="navbar-brand js-scroll-trigger">Crowdsourcing mosquito</a>
+        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-0 mx-lg-1">
+                <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" ng-click="toHome()">Homepage</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1" ng-hide="!logged">
+                <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#/user">My contributions</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1" ng-hide="logged">
+                <div class="g-signin2" data-onsuccess="onSignIn" style="margin-top: 8%;"></div>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1" ng-hide="!logged">
+                <a href="#/" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" onclick="signOut();">Sign out</a>
+            </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+<br>
 
 <div class="container emp-profile h-100 justify-content-center">
     <form method="post">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-lg-3">
                 <div class="profile-img">
                     <img src="{{photo}}" alt=""/>
                 </div>
+                <br>
 
                 <div class="profile-work">
                     <br>
@@ -152,22 +187,25 @@
                     </span>
                     -->
                     <div>
-                        <button ng-click="toNewContrib()" class="btn btn-block" data-toggle="tooltip" data-placement="top" title="Submit a new contribution" style="background-color:#F8B018; color: #fff;">
+                        <!-- Eliminated: data-toggle="tooltip" data-placement="top" title="Submit a new contribution"-->
+                        <button ng-click="toNewContrib()" class="btn btn-block" style="background-color:#F8B018; color: #fff;">
                             New Contribution
                         </button>
                         <hr>
-                        <button ng-click="toWorldMap()" class="btn" data-toggle="tooltip" data-placement="right" title="Here you can find the world map of contributions" style="background-color:#F8B018; color: #fff;">
-                            World map of contributions
+                        <!-- Eliminated: data-toggle="tooltip" data-placement="right" title="Here you can find the world map of contributions""-->
+                        <button ng-click="toWorldMap()" class="btn btn-block" style="background-color:#F8B018; color: #fff;">
+                            Contributions Map
                         </button>
                         <hr>
-                        <button ng-click='downloadCSV({ filename: "stock-data.csv" });' class="btn" data-toggle="tooltip" data-placement="right" title="Here you can download all the users contribution data" style="background-color:#F8B018; color: #fff;">
-                            Download contribution data
+                        <!-- Eliminated: data-toggle="tooltip" data-placement="right" title="Here you can download all the users contribution data""-->
+                        <button ng-click='downloadCSV({ filename: "stock-data.csv" });' class="btn btn-block" style="background-color:#F8B018; color: #fff;">
+                            Download contrib data
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-7">
+            <div class="col-lg-9">
                 <div class="profile-head" style="overflow:auto;">
                     <h4>
                         Welcome {{name}}!
@@ -206,6 +244,7 @@
                 </div>
             </div>
 
+            <!--
             <div class="col-md-2 justify-content-center">
                 <div class="row">
                     <div class="col-md-12">
@@ -219,6 +258,7 @@
                     </div>
                 </div>
             </div>
+            -->
         </div>
     </form>
 </div>
@@ -229,4 +269,34 @@
     $(function () {
     $('[data-toggle="tooltip"]').tooltip()
     })
+</script>
+
+<!-- Script for Google Authentication -->
+<script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
+<script src="public/js/freelancer.min.js"></script>
+
+<!-- Scripts -->
+<script src="public/vendor/select2/select2.min.js"></script>
+
+<script>
+    $(".selection-2").select2({
+        minimumResultsForSearch: 20,
+        dropdownParent: $('#dropDownSelect1')
+    });
+</script>
+
+<script>
+    function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      angular.element(document.getElementById('formPage')).scope().getSession(profile);
+    }
+
+    function signOut() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        console.log('User signed out.');
+      });
+      angular.element(document.getElementById('formPage')).scope().logOut();
+
+    }
 </script>

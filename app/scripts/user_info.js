@@ -1,9 +1,31 @@
 mainApp.controller('UserController', function($rootScope, $scope, $location, $http) {
     console.log("User controller");
+    $scope.logged = false;
 
     if($rootScope.user == null){
       $location.path('/');
     }
+
+    $scope.getSession = function(profile){
+        $rootScope.user = profile;
+        $scope.logged = true;
+    
+        console.log($rootScope.user);
+    
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    
+        $scope.$apply();
+      }
+    
+      $scope.logOut = function(profile){
+        $rootScope.user = null;
+        $scope.logged = false;
+        $scope.$apply();
+    
+      }
 
     $scope.toWorldMap = function(){
         $location.path('/map');

@@ -141,7 +141,7 @@
     width: 70%;
     padding: 2%;
     font-weight: 600;
-    color: #6c757d;
+    color: #52443B;
     cursor: pointer;
 }
 .proile-rating{
@@ -166,7 +166,7 @@
     border-bottom:2px solid #0062cc;
 }
 .profile-work{
-    padding: 14%;
+    padding: 8%;
     margin-top: -15%;
 }
 .profile-work p{

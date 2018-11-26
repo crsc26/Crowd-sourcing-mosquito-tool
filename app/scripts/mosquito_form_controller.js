@@ -23,6 +23,10 @@ mainApp.controller('StudentController', function($rootScope, $scope, $http, NgMa
           $scope.getWeather();
       };
 
+      $scope.toUserInfo = function(){
+        $location.path('/user');
+    }
+
       $scope.debug = function(){
         var jsn = {
           "coordenadas" : $scope.latlng,
@@ -53,6 +57,7 @@ mainApp.controller('StudentController', function($rootScope, $scope, $http, NgMa
         }).then(function successCallback(data) {
                   $scope.PostDataResponse = data;
                   console.log(data);
+                  $scope.toUserInfo();
               }, function errorCallback(response) {
                   console.log(response);
               });
